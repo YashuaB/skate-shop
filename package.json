@@ -1,0 +1,19 @@
+{
+  "name": "skate-shop",
+  "version": "1.0.0",
+  "description": "Ecommerce website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YashuaB/skate-shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YashuaB/skate-shop/issues"
+  },
+  "homepage": "https://github.com/YashuaB/skate-shop#readme"
+}
