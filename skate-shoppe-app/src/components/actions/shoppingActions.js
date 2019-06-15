@@ -1,4 +1,4 @@
-import { ADD_ITEM,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY} from "./actionTypes"
+import { ADD_ITEM,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY } from "./actionTypes"
 
 //Action creators
 //Action to add item in shopping cart
