@@ -1,5 +1,4 @@
 var express = require("express");
-
 var app = express();
 var PORT = process.env.PORT || 8080;
 
@@ -16,9 +15,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 
-require("./routes/loginRoutes")(app);
+// require("./routes/loginRoutes")(app);
 require("./routes/itemRoutes")(app);
-require("./routes/cartRoutes")(app)
+// require("./routes/cartRoutes")(app)
 
 
 db.sequelize.sync({ force: true }).then(function() {

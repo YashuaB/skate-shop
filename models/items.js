@@ -6,14 +6,14 @@ module.exports = function(sequelize, DataTypes){
       allowNull: false,
     },
     price: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.DECIMAL(10,2),
       allowNull: false,
       validate:{
         //is there going to validation needed here  
       }
     },
      quantity:{
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
       brands: {
@@ -22,20 +22,26 @@ module.exports = function(sequelize, DataTypes){
       },
       clothingType: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       },
       image: {
         type: DataTypes.STRING,
         allowNull: false
       },
       sex: {
-        type:DataType.STRING,
+        type:DataTypes.STRING,
         allowNull: true
       },
       size: {
-        type: DataTypes.NUMBER,
-        allowNull: false
+        type: DataTypes.INTEGER,
+        allowNull: true
       },
+      
+      categorey:{
+          type: DataTypes.STRING,
+          allowNull:false
+        },
+      
       isAdded: {
         type: DataTypes.BOOLEAN,
         allowNull:true
@@ -43,7 +49,8 @@ module.exports = function(sequelize, DataTypes){
       isPurchased: {
         type: DataTypes.BOOLEAN,
         allowNull:true
-      }
+      },
+     
       
 
   })

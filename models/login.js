@@ -7,7 +7,6 @@ module.exports = function(sequelize, DataTypes){
       validate:{
         len:[6,25]
       }
-
     },
      email: {
       type: DataTypes.STRING,
