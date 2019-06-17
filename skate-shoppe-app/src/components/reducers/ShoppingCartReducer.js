@@ -1,9 +1,9 @@
 // Dummy data for testing
-import Item1 from "../../images/item1.jpg";
-import Item2 from "../../images/item2.jpg";
-import Item3 from "../../images/item3.jpg";
-import Item4 from "../../images/item4.jpg";
-import Item5 from "../../images/item5.jpg";
+import Item1 from "../../images/item1.jpeg";
+import Item2 from "../../images/item2.jpeg";
+import Item3 from "../../images/item3.jpeg";
+import Item4 from "../../images/item4.jpeg";
+import Item5 from "../../images/item5.jpeg";
 import Item6 from "../../images/item6.jpg";
 import {
   ADD_ITEM,
@@ -11,7 +11,7 @@ import {
   SUB_QUANTITY,
   ADD_QUANTITY,
   ADD_SHIPPING
-} from "../actions/shoppingActions";
+} from "../actions/cartActions";
 
 const initState = {
   items: [

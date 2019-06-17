@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./components/";
 import LogIn from "./pages/LogIn";
 import ShoppingPage from "./pages/ShoppingPage";
 

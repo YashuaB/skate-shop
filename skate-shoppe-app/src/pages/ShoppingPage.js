@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addItem } from "../actions/shoppingActions";
+import { addItem } from "./actions/shoppingActions";
 
 
 class ShoppingPage extends Component {
@@ -36,7 +36,7 @@ class ShoppingPage extends Component {
         </div>
       );
     });
-// Item list displeyed here.
+// Item list displayed here.
     return (
       <div className="container">
         <h3 className="center">SHOP</h3>
