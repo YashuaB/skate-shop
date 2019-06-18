@@ -2,7 +2,7 @@ var db = require("../models")
 
 module.exports = function(app) {
 
-  app.get("/all-inventory/:singleItem?"), function(req, res){
+  app.get("/all-inventory/:singleItem?", function(req, res){
 
     if (req.params.singleItem) {
       db.Inventory.findOne({
@@ -19,9 +19,9 @@ module.exports = function(app) {
         res.json(dbInventory)
       })
     }
-  }
+  })
 
-  app.get("/inventory/pants/:pant?"), function (req, res) {
+  app.get("/inventory/pants/:pant?", function (req, res) {
     if (req.params.pant) {
       db.Inventory.findOne({
         where: {
@@ -38,9 +38,9 @@ module.exports = function(app) {
       })
 
     }
-  }
+  })
 
-  app.get("/inventory/shirts/:shirt?"), function (req, res) {
+  app.get("/inventory/shirts/:shirt?", function (req, res) {
     if (req.params.shirt) {
       db.Inventory.findOne({
         where: {
@@ -57,7 +57,7 @@ module.exports = function(app) {
       })
 
     }
-  } 
+  }) 
 
   // app.get("/inventory/decks/:deck?"), function (req, res) {
   //   if (req.params.deck) {
@@ -78,7 +78,7 @@ module.exports = function(app) {
   //   }
   // } 
 
-  app.get("/inventory/price"), function (req, res) {
+  app.get("/inventory/price", function (req, res) {
     if (req.params.price) {
       db.Inventory.findOne({
         where: {
@@ -95,9 +95,9 @@ module.exports = function(app) {
       })
 
     }
-  } 
+  })
 
-  app.get("/inventory/category/:category?"), function (req, res) {
+  app.get("/inventory/category/:category?", function (req, res) {
     if (req.params.price) {
       db.Inventory.findOne({
         where: {
@@ -114,6 +114,6 @@ module.exports = function(app) {
       })
 
     }
-  } 
+  }) 
 
 }
