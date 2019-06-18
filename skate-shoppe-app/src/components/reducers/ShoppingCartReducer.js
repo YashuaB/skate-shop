@@ -11,7 +11,7 @@ import {
   SUB_QUANTITY,
   ADD_QUANTITY,
   ADD_SHIPPING
-} from "../actions/cartActions";
+} from "../actions/actionTypes";
 
 const initState = {
   items: [
