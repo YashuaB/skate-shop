@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addItem } from "./actions/shoppingActions";
+import { addItem } from "../actions/shoppingActions";
 
 
 class ShoppingPage extends Component {
