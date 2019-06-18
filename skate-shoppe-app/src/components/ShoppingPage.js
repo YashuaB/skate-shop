@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addItem } from "../actions/shoppingActions";
+import { addItem } from "./actions/shoppingActions";
 
 
 class ShoppingPage extends Component {
@@ -24,7 +24,7 @@ class ShoppingPage extends Component {
                 this.handleClick(item.id);
               }}
             >
-              <i className="material-icons">Add</i>
+              <i className="material-icons">add</i>
             </span>
           </div>
           <div className="card-content">
