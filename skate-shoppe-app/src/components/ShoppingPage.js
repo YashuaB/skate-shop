@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { addItem } from "./actions/shoppingActions";
 import axios from "axios"
 
+
 class ShoppingPage extends Component {
   //Adds the clicked item to the shopping cart.
 
@@ -91,6 +92,7 @@ class ShoppingPage extends Component {
        
         
       );
+
     // });
 // Item list displayed here.
 
@@ -100,6 +102,16 @@ class ShoppingPage extends Component {
     //     <div className="box">{itemList}</div>
     //   </div>
     // );
+
+    });
+    // Item list displayed here.
+    return (
+      <div className="container">
+        <h3 className="center">SHOP</h3>
+        <div className="box">{itemList}</div>
+      </div>
+    );
+
   }
 }
 
