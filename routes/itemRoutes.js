@@ -2,6 +2,17 @@ var db = require("../models")
 
 module.exports = function(app) {
 
+  
+
+  app.get("/all-inventory", function(req, res){
+
+      db.Inventory.findAll({})
+      .then(function (dbInventory) {
+        res.json(dbInventory)
+      })
+    })
+  
+
   app.get("/all-inventory/:singleItem?", function(req, res){
 
     if (req.params.singleItem) {

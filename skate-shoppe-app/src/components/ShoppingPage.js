@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addItem } from "./actions/shoppingActions";
-
+import axios from "axios"
 
 class ShoppingPage extends Component {
   //Adds the clicked item to the shopping cart.
@@ -12,22 +12,44 @@ class ShoppingPage extends Component {
   }
 
   componentDidMount(){
+    console.log("test")
+
+    
+      axios.get( "http://localhost:8080/all-inventory")
+        .then(res => {
+          const data = res.data;
+          this.setState({ inventory: data });
+        }).catch(error => {
+          console.log(error);
+        });
+      
+    
+    // fetch("/all-inventory")
+    // .then(results => {
+    //   console.log(results.body)
+    //   // return results.json()
+    // }).then(data => {
+    //   console.log(data)
 
 
-    fetch("/all-inventory/:singleItem")
-    .then(results => {
-      return results.json()
-    }).then(data => {
-      let inventory = data.results.map((item) =>{
-        return(
-          <div key={item.results}>
-           <img src={item.image}/>
-          </div>
-        )
-      })
-      this.setState({inventory:inventory})
-      console.log("state", this.state.inventory)
-    })
+
+
+      // let inventory = data.results.map((item) =>{
+      //   return(
+      //     <div key={item.results}>
+      //      <img src={item.image}/>
+      //     </div>
+      //   )
+      // })
+
+
+      
+      // this.setState({inventory:data}, () => {
+      //   console.log("state", this.state.inventory)
+
+      // })
+
+    // })
   }
 
   handleClick = id => {
@@ -38,27 +60,36 @@ class ShoppingPage extends Component {
     // Renders items on the page in cards.
     // let itemList = this.props.items.map(item => {
       return (
-        <div className="card" key={this.state.item.id}>
+        <div>
+        {this.state.inventory ? this.state.inventory.map(item =>{
+          return(
+
+            <div className="card" key={item.id}>
           <div className="card-image">
-            <img src={this.state.item.image} alt={this.state.itemName} />
+            <img src={item.image} alt={item.itemName} />
             <span className="card-title">{this.state.itemName}</span>
             <span
               to="/"
               className="btn-floating halfway-fab waves-effect waves-light grey"
               onClick={() => {
-                this.handleClick(this.state.item.id);
+                this.handleClick(item.id);
               }}
             >
               <i className="material-icons">add</i>
             </span>
           </div>
           <div className="card-content">
-            <p>{this.state.itemName}</p>
+            <p>{item.itemName}</p>
             <p>
-              <b>Price: {this.state.item.price}$</b>
+              <b>Price: ${item.price}</b>
             </p>
           </div>
+        </div>)
+        
+      }) : <div>Hi</div>}
         </div>
+       
+        
       );
     // });
 // Item list displayed here.
