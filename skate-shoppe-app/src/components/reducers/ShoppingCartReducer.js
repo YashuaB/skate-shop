@@ -4,7 +4,7 @@ import Item2 from "../../images/item2.jpeg";
 import Item3 from "../../images/item3.jpeg";
 import Item4 from "../../images/item4.jpeg";
 import Item5 from "../../images/item5.jpeg";
-import Item6 from "../../images/item6.jpg";
+import Item6 from "../../images/item6.jpeg";
 import {
   ADD_ITEM,
   REMOVE_ITEM,
