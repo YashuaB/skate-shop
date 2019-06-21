@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addItem } from "./actions/shoppingActions";
 
-
 class ShoppingPage extends Component {
   //Adds the clicked item to the shopping cart.
   handleClick = id => {
@@ -36,7 +35,7 @@ class ShoppingPage extends Component {
         </div>
       );
     });
-// Item list displayed here.
+    // Item list displayed here.
     return (
       <div className="container">
         <h3 className="center">SHOP</h3>
