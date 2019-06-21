@@ -1,0 +1,20 @@
+.page-footer {
+    margin-top: 300px;
+    padding-top: 20px;
+    color: #e8eaf6;
+    background-color: dimgrey ;
+   
+  }
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .grey-text text-lighten-8 {
+    font-size: 30px;
+  }

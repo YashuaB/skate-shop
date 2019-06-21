@@ -24,32 +24,7 @@ class ShoppingPage extends Component {
         });
       
     
-    // fetch("/all-inventory")
-    // .then(results => {
-    //   console.log(results.body)
-    //   // return results.json()
-    // }).then(data => {
-    //   console.log(data)
-
-
-
-
-      // let inventory = data.results.map((item) =>{
-      //   return(
-      //     <div key={item.results}>
-      //      <img src={item.image}/>
-      //     </div>
-      //   )
-      // })
-
-
-      
-      // this.setState({inventory:data}, () => {
-      //   console.log("state", this.state.inventory)
-
-      // })
-
-    // })
+   
   }
 
   handleClick = id => {

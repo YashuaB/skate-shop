@@ -3,6 +3,7 @@ import "./App.css";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 import LogIn from "./components/LogIn";
 import Register from "./components/Register";
 import ShoppingPage from "./components/ShoppingPage";
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/register" component={Register} />
           {/* <Route component={NoMatch} /> */}
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
