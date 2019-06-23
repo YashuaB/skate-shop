@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes){
     },
       brands: {
         type: DataTypes.STRING,
-        allowNull: false  
+        allowNull: true 
       },
       clothingType: {
         type: DataTypes.STRING,
