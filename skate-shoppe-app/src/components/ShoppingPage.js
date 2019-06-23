@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addItem } from "./actions/shoppingActions";
 import axios from "axios"
+<<<<<<< HEAD
+=======
+
+>>>>>>> a378ff3642a178ee8c78e6c4049eb6e068bbc982
 
 class ShoppingPage extends Component {
   //Adds the clicked item to the shopping cart.
