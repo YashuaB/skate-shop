@@ -9,22 +9,22 @@ class ShoppingPage extends Component {
 
 
   state = {
-    inventory:[]
+    inventory: []
   }
 
-  componentDidMount(){
+  componentDidMount() {
     console.log("test")
 
-    
-      axios.get( "http://localhost:8080/all-inventory")
-        .then(res => {
-          const data = res.data;
-          this.setState({ inventory: data });
-        }).catch(error => {
-          console.log(error);
-        });
-      
-    
+
+    axios.get("http://localhost:8080/all-inventory")
+      .then(res => {
+        const data = res.data;
+        this.setState({ inventory: data });
+      }).catch(error => {
+        console.log(error);
+      });
+
+
     // fetch("/all-inventory")
     // .then(results => {
     //   console.log(results.body)
@@ -35,20 +35,20 @@ class ShoppingPage extends Component {
 
 
 
-      // let inventory = data.results.map((item) =>{
-      //   return(
-      //     <div key={item.results}>
-      //      <img src={item.image}/>
-      //     </div>
-      //   )
-      // })
+    // let inventory = data.results.map((item) =>{
+    //   return(
+    //     <div key={item.results}>
+    //      <img src={item.image}/>
+    //     </div>
+    //   )
+    // })
 
 
-      
-      // this.setState({inventory:data}, () => {
-      //   console.log("state", this.state.inventory)
 
-      // })
+    // this.setState({inventory:data}, () => {
+    //   console.log("state", this.state.inventory)
+
+    // })
 
     // })
   }
@@ -60,41 +60,41 @@ class ShoppingPage extends Component {
   render() {
     // Renders items on the page in cards.
     // let itemList = this.props.items.map(item => {
-      return (
-        <div>
-        {this.state.inventory ? this.state.inventory.map(item =>{
-          return(
+    return (
+      <div>
+        {this.state.inventory ? this.state.inventory.map(item => {
+          return (
 
             <div className="card" key={item.id}>
-          <div className="card-image">
-            <img src={item.image} alt={item.itemName} />
-            <span className="card-title">{this.state.itemName}</span>
-            <span
-              to="/"
-              className="btn-floating halfway-fab waves-effect waves-light grey"
-              onClick={() => {
-                this.handleClick(item.id);
-              }}
-            >
-              <i className="material-icons">add</i>
-            </span>
-          </div>
-          <div className="card-content">
-            <p>{item.itemName}</p>
-            <p>
-              <b>Price: ${item.price}</b>
-            </p>
-          </div>
-        </div>)
-        
-      }) : <div>Hi</div>}
-        </div>
-       
-        
-      );
+              <div className="card-image">
+                <img src={item.image} alt={item.itemName} />
+                <span className="card-title">{this.state.itemName}</span>
+                <span
+                  to="/"
+                  className="btn-floating halfway-fab waves-effect waves-light grey"
+                  onClick={() => {
+                    this.handleClick(item.id);
+                  }}
+                >
+                  <i className="material-icons">add</i>
+                </span>
+              </div>
+              <div className="card-content">
+                <p>{item.itemName}</p>
+                <p>
+                  <b>Price: ${item.price}</b>
+                </p>
+              </div>
+            </div>)
+
+        }) : <div>Hi</div>}
+      </div>
+
+
+    );
 
     // });
-// Item list displayed here.
+    // Item list displayed here.
 
     // return (
     //   <div className="container">
@@ -103,14 +103,14 @@ class ShoppingPage extends Component {
     //   </div>
     // );
 
-    });
+    // });
     // Item list displayed here.
-    return (
-      <div className="container">
-        <h3 className="center">SHOP</h3>
-        <div className="box">{itemList}</div>
-      </div>
-    );
+    // return (
+    //   <div className="container">
+    //     <h3 className="center">SHOP</h3>
+    //     <div className="box">{itemList}</div>
+    //   </div>
+    // );
 
   }
 }
