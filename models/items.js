@@ -12,45 +12,25 @@ module.exports = function (sequelize, DataTypes) {
         //is there going to validation needed here  
       }
     },
-    quantity: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    brands: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    clothingType: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
+
     image: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    sex: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    size: {
+    quantity: {
       type: DataTypes.INTEGER,
-      allowNull: true
-    },
-
-    categorey: {
-      type: DataTypes.STRING,
       allowNull: false
     },
 
-    isAdded: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true
-    },
-    isPurchased: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true
-    },
 
+    createdAt: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    updatedAt: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    }
 
 
   })
