@@ -29,6 +29,14 @@ module.exports = function(sequelize, DataTypes){
         type: DataTypes.STRING,
         allowNull: false
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
       // sex: {
       //   type:DataTypes.STRING,
       //   allowNull: true
