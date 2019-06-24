@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Footer from "./components/Footer";
 import LogIn from "./components/LogIn";
 import Register from "./components/Register";
