@@ -1,5 +1,6 @@
 import React from "react";
 import { Parallax, Background } from "react-parallax";
+import "./style.css";
 
 const Home = () => {
   return (

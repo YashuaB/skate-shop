@@ -5,7 +5,6 @@ import axios from "axios";
 
 class ShoppingPage extends Component {
   //Adds the clicked item to the shopping cart.
-
   state = {
     inventory: []
   };
@@ -54,11 +53,10 @@ class ShoppingPage extends Component {
     // Renders items on the page in cards.
     // let itemList = this.props.items.map(item => {
     return (
-      <div>
+      <div className="box">
         {this.state.inventory ? (
           this.state.inventory.map(item => {
             return (
-              <div className="box">
                 <div className="card" key={item.id}>
                   <div className="card-image">
                     <img src={item.image} alt={item.itemName} />
@@ -80,7 +78,6 @@ class ShoppingPage extends Component {
                     </p>
                   </div>
                 </div>
-              </div>
             );
           })
         ) : (
@@ -94,14 +91,13 @@ class ShoppingPage extends Component {
     // return (
     //   <div className="container">
     //     <h3 className="center">SHOP</h3>
-    //     <div className="box">{item}</div>
+    //     <div className="box">{itemList}</div>
     //   </div>
     // );
   }
 }
 
 // We are exporting the combination of a component that is connected to the store. Any changes to the state will be reflected in the component because it is “connected” to mapStateToProps and that information is now made available to the component through a prop.
-
 const mapStateToProps = state => {
   return {
     items: state.items
@@ -109,7 +105,6 @@ const mapStateToProps = state => {
 };
 
 // This function directs the dispatching of an action by pointing it to an action creator addItem.
-
 const mapDispatchToProps = dispatch => {
   return {
     addItem: id => {
@@ -123,6 +118,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ShoppingPage);
-
-
-
