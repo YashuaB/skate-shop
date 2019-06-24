@@ -24,8 +24,6 @@ function App() {
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/profile" component={SideNav} />
-
-          {/* <Route component={NoMatch} /> */}
         </Switch>
         <Footer />
       </div>
