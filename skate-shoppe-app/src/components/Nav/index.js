@@ -12,6 +12,7 @@ import './style.css';
                         <li><Link to="/shop"> Shop </Link></li>
                         <li><Link to="/register"> Sign Up </Link></li>
                         <li><Link to="/login"> Log In </Link></li>
+                        <li><Link to="/profile"> <i className="material-icons">account_circle</i> </Link></li>
                         <li><Link to="/cart"><i className="material-icons">shopping_cart</i></Link></li>
                     </ul>
                 </div>

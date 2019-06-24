@@ -8,6 +8,7 @@ import LogIn from "./components/LogIn";
 import Register from "./components/Register";
 import ShoppingPage from "./components/ShoppingPage";
 import ShoppingCart from "./components/ShoppingCart";
+import SideNav from "./components/SideNav";
 
 
 
@@ -22,6 +23,8 @@ function App() {
           <Route exact path="/cart" component={ShoppingCart} />
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/profile" component={SideNav} />
+
           {/* <Route component={NoMatch} /> */}
         </Switch>
         <Footer />

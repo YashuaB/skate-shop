@@ -91,9 +91,6 @@ class ShoppingPage extends Component {
 
     // });
     // Item list displayed here.
-
-    // });
-    // Item list displayed here.
     // return (
     //   <div className="container">
     //     <h3 className="center">SHOP</h3>
