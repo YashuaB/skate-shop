@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import passport from "passport"
+import axios from "axios"
 class Login extends Component {
 
     constructor() {
@@ -19,6 +20,8 @@ class Login extends Component {
         })
     }
 
+
+
     handleSubmit(e) {
         e.preventDefault();
         const user = {
@@ -26,6 +29,15 @@ class Login extends Component {
             password: this.state.password,
         }
         console.log(user);
+
+        axios.get('http://localhost:8080/login', function(req, res){
+            if(req.isAuthenticated()) {
+              res.redirect('/');
+            } else {
+              res.send("unauthorized") }
+              
+            }
+            );
     }
 
     render() {

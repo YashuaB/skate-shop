@@ -51,14 +51,14 @@ module.exports = function(sequelize, DataTypes){
       //     allowNull:true
       //   },
       
-      // isAdded: {
-      //   type: DataTypes.BOOLEAN,
-      //   allowNull:true
-      // },
-      // isPurchased: {
-      //   type: DataTypes.BOOLEAN,
-      //   allowNull:true
-      // },
+      isAdded: {
+        type: DataTypes.BOOLEAN,
+        allowNull:true
+      },
+      isPurchased: {
+        type: DataTypes.BOOLEAN,
+        allowNull:true
+      },
      
       
 
