@@ -7,40 +7,49 @@ module.exports = function(sequelize, DataTypes){
     },
     price: {
       type: DataTypes.DECIMAL(10,2),
-      allowNull: false,
-      validate:{
-        //is there going to validation needed here  
-      }
+      allowNull: false
+      // validate:{
+      //   //is there going to validation needed here  
+      // }
     },
      quantity:{
       type: DataTypes.INTEGER,
       allowNull: false
     },
-      brands: {
-        type: DataTypes.STRING,
-        allowNull: true 
-      },
-      clothingType: {
-        type: DataTypes.STRING,
-        allowNull: true
-      },
+  
+      // brands: {
+      //   type: DataTypes.STRING,
+      //   allowNull: true  
+      // },
+      // clothingType: {
+      //   type: DataTypes.STRING,
+      //   allowNull: true
+      // },
       image: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      sex: {
-        type:DataTypes.STRING,
+      createdAt: {
+        type: DataTypes.DATE,
         allowNull: true
       },
-      size: {
-        type: DataTypes.INTEGER,
+      updatedAt: {
+        type: DataTypes.DATE,
         allowNull: true
       },
+      // sex: {
+      //   type:DataTypes.STRING,
+      //   allowNull: true
+      // },
+      // size: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: true
+      // },
       
-      categorey:{
-          type: DataTypes.STRING,
-          allowNull:false
-        },
+      // category:{
+      //     type: DataTypes.STRING,
+      //     allowNull:true
+      //   },
       
       isAdded: {
         type: DataTypes.BOOLEAN,
@@ -55,5 +64,5 @@ module.exports = function(sequelize, DataTypes){
 
   })
 
-  return Inventory
+  return Inventory;
 }
