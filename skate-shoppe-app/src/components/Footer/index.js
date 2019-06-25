@@ -32,8 +32,8 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a className="grey-text text-lighten-3" href="#!">
-                  Diop
+                <a className="grey-text text-lighten-3" href="https://diop2x.github.io/portfolio-update/index.html">
+                  Youssou
                 </a>
               </li>
             </ul>
