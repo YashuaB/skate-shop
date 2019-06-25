@@ -35,6 +35,15 @@ class Register extends Component {
         .then(res => {
           console.log(res);
           console.log(res.data);
+
+          if(res.data){
+              console.log("you are logged in")
+              this.setState({
+                  redirectTo: "/login"
+              })
+          } else {
+              console.log("not able to sign up")
+          }
         //   res.redirect("/")
         })
     }

@@ -42,10 +42,10 @@ app.use(passport.session());
 
 // Our passport stategy
 passport.use(new LocalStrategy(
-    function(username, password, done) {
+    function(email, password, done) {
         db.User.findOne({  // Using sequelize model function
             where: { // Take an object with options where self explanatory
-                'username': username
+                'email': email
             }
         }).then(function (user) { // Sequelize return a promise with user in callback
             if (user == null) { // Checking if user exsists
@@ -80,8 +80,7 @@ passport.deserializeUser(function(id, done) {
 })
 
 // Post request handling route for login
-app.post('/login', passport.authenticate('local', { successRedirect: '/testGuard',
-        failureRedirect: '/testGuard'}))
+
 
 
 // Standerd middleware taking req, res and next as parameters
@@ -94,7 +93,7 @@ function loggedIn(req, res, next) {
 }
 
 // Protected route
-app.get('/testGuard',loggedIn, (req,res)=>{
+app.get('/',loggedIn, (req,res)=>{
   res.send("YOU ARE AUTHENTICATED");
 })
 
