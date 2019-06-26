@@ -2,12 +2,13 @@ import React from "react";
 import "./App.css";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Footer from "./components/Footer";
 import LogIn from "./components/LogIn";
 import Register from "./components/Register";
 import ShoppingPage from "./components/ShoppingPage";
 import ShoppingCart from "./components/ShoppingCart";
+import SideNav from "./components/SideNav";
 
 
 
@@ -22,7 +23,7 @@ function App() {
           <Route exact path="/cart" component={ShoppingCart} />
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/register" component={Register} />
-          {/* <Route component={NoMatch} /> */}
+          <Route exact path="/profile" component={SideNav} />
         </Switch>
         <Footer />
       </div>

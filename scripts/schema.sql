@@ -2,5 +2,4 @@ DROP DATABASE IF EXISTS skateShopDB;
 
 CREATE DATABASE  skateShopDB;
 
-
 USE DATABASE   skateShopDB;
