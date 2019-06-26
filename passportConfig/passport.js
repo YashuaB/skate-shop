@@ -1,9 +1,11 @@
 var passport = require("passport")
+var bcrypt = require("bcrypt")
+var jwtSecret = require("./jwtConfig")
 localStrategy = require('passport-local').Strategy
-db = require("../models")
 JWTstratgey = require("passport-jwt").Strategy
 ExtractJWT = require("passport-jwt").ExtractJWT
-var bcrypt = require("bcrypt")
+db = require("../models")
+
 // var flash = require('connect-flash')
 // var passportConfig = require('./config/passport')
 // passportConfig = require("./config/passport")
