@@ -16,15 +16,6 @@ module.exports = function(sequelize, DataTypes){
       type: DataTypes.INTEGER,
       allowNull: false
     },
-  
-      // brands: {
-      //   type: DataTypes.STRING,
-      //   allowNull: true  
-      // },
-      // clothingType: {
-      //   type: DataTypes.STRING,
-      //   allowNull: true
-      // },
       image: {
         type: DataTypes.STRING,
         allowNull: false
@@ -46,10 +37,10 @@ module.exports = function(sequelize, DataTypes){
       //   allowNull: true
       // },
       
-      // category:{
-      //     type: DataTypes.STRING,
-      //     allowNull:true
-      //   },
+      category:{
+          type: DataTypes.STRING,
+          allowNull:true
+        },
       
       isAdded: {
         type: DataTypes.BOOLEAN,
