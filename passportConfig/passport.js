@@ -1,53 +1,112 @@
 var passport = require("passport")
-var LocalStrategy = require('passport-local').Strategy
-var db = require("../models")
+localStrategy = require('passport-local').Strategy
+db = require("../models")
+JWTstratgey = require("passport-jwt").Strategy
+ExtractJWT = require("passport-jwt").ExtractJWT
+var bcrypt = require("bcrypt")
 // var flash = require('connect-flash')
 // var passportConfig = require('./config/passport')
 // passportConfig = require("./config/passport")
 // application = require("")
-SALT_WORK_FACTOR = 12
+var BCRYPT_SALT_ROUNDS = 12
 
-// Our passport stategy
-passport.use(new LocalStrategy(
-  function(email, password, done) {
-      db.User.findOne({  // Using sequelize model function
-          where: { // Take an object with options where self explanatory
-              'email': email
-          }
-      }).then(function (user) { // Sequelize return a promise with user in callback
-          if (user == null) { // Checking if user exsists
-              return done(null, false)  // Standerd Passport callback
-          }
 
-          if (password == user.password) { // use your password hash comparing logic here for security
-              return done(null, user) // Standerd Passport callback
+passport.use(
+  'register',
+  new localStrategy(
+    {
+      usernameField: 'username',
+      passwordField: 'password',
+      session: false,
+    },
+    (username, password, done) => {
+      try {
+        db.User.findOne({
+          where: {
+            username: username,
+          },
+        }).then(user => {
+          if (user !== null) {
+            console.log('username already taken')
+            return done(null, false, { message: 'username already taken' })
+          } else {
+            bcrypt.hash(password, BCRYPT_SALT_ROUNDS).then(hashedPassword => {
+              db.User.create({ username, password: hashedPassword }).then(user => {
+                console.log('user created')
+
+                return done(null, user)
+              })
+            })
           }
-          return done(null, false) // Standerd Passport callback
+        })
+      } catch (err) {
+        done(err)
+      }
+    }
+  )
+)
+
+passport.use(
+  'login',
+  new localStrategy({
+    usernameField: 'username',
+    passwordField: 'password',
+    session: false,
+  },
+    (username, password, done) => {
+      try {
+        db.User.findOne({
+          where: {
+            username: username
+          }
+        }).then(user => {
+          if (user === null) {
+            return done(null, false, { message: "bad username" })
+          } else {
+            bcrypt.compare(password, user.password).then(response => {
+              if (response !== true) {
+                console.log('password do not match')
+                return done(null, false, { message: 'password do not match' })
+              }
+              console.log('user found and authenticated')
+              return done(null, user)
+            })
+          }
+        })
+      } catch (err) {
+        done(err)
+      }
+    }
+
+  )
+)
+
+var opts = {
+  jwtFromRequest: ExtractJWT.fromAuthHeaderWithScheme("JWT"),
+  secretOrKey: jwtSecret.secret
+}
+
+passport.use(
+  'jwr',
+  new JWTstratgey(opts, (jwt_payload, done) =>{
+    try { 
+      db.User.findOne({
+        where: {
+          username: jwt_payload.id,
+        },
+      }).then(user => {
+       
+          if (user){
+            console.log('user found in db in passport')
+
+            done(null, user)
+          }else {
+            console.log(' user not found in db')
+            done(null, false)
+          }
       })
-  }
-))
-
-// for maintaining session
-passport.serializeUser(function(user, done) { // Standered Serialize for session
-  done(null, user.id)
-})
-
-passport.deserializeUser(function(id, done) {
-  db.User.findOne({ // Using sequelize model functoin
-      where: {
-          'id': id
-      }
-  }).then(function (user) {
-      if (user == null) {
-          done(new Error('Wrong user id.'))
-      }
-
-      done(null, user) // Standerd deserailize callback
+    } catch (err){
+      done(err)
+    }
   })
-})
-
-// Post request handling route for login
-
-
-
-// Standerd middleware taking req, res and next as parameters
+)
