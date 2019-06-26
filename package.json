@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:8080",
+  "proxy": "http://localhost:3001",
   "name": "skate-shop",
   "version": "1.0.0",
   "description": "Ecommerce website",

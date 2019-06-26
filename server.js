@@ -1,13 +1,13 @@
 var express = require("express");
 var app = express();
 var cors = require("cors")
-var session = require('express-session')
+// var session = require('express-session')
 var passport = require("passport")
 var env = require("dotenv").config()
 
 
 
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3001;
 
 
 var db = require("./models");
