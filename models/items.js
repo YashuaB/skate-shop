@@ -21,6 +21,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+<<<<<<< HEAD
 
     // brands: {
     //   type: DataTypes.STRING,
@@ -66,6 +67,53 @@ module.exports = function (sequelize, DataTypes) {
     // },
 
 
+=======
+  
+      // brands: {
+      //   type: DataTypes.STRING,
+      //   allowNull: true  
+      // },
+      // clothingType: {
+      //   type: DataTypes.STRING,
+      //   allowNull: true
+      // },
+      image: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
+      // sex: {
+      //   type:DataTypes.STRING,
+      //   allowNull: true
+      // },
+      // size: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: true
+      // },
+      
+      // category:{
+      //     type: DataTypes.STRING,
+      //     allowNull:true
+      //   },
+      
+      isAdded: {
+        type: DataTypes.BOOLEAN,
+        allowNull:true
+      },
+      isPurchased: {
+        type: DataTypes.BOOLEAN,
+        allowNull:true
+      },
+     
+      
+>>>>>>> 64323245f5b39e5ab04b55bf0eac8377d5bd32b0
 
   })
 
