@@ -37,6 +37,7 @@ app.use(passport.initialize());
 
 
 require("./routes/loginRoutes")(app);
+require("./routes/registerRoutes")(app)
 require("./routes/itemRoutes")(app);
 // require("./routes/cartRoutes")(app)
 
