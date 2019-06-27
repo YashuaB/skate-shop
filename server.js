@@ -33,7 +33,7 @@ app.use(session({  // Session MW
   secret: 'fucking-hell', // Use a more secure secret LOL
   resave: true,
   saveUninitialized: true,
-  cookie: { maxAge: 100 * 60 * 60 * 24 * 30} // = 30 days
+  cookie: { maxAge: 100 * 60 * 60 * 24 * 30 } // = 30 days
 }))
 
 // Passport intialization
@@ -42,41 +42,41 @@ app.use(passport.session());
 
 // Our passport stategy
 passport.use(new LocalStrategy(
-    function(email, password, done) {
-        db.User.findOne({  // Using sequelize model function
-            where: { // Take an object with options where self explanatory
-                'email': email
-            }
-        }).then(function (user) { // Sequelize return a promise with user in callback
-            if (user == null) { // Checking if user exsists
-                return done(null, false)  // Standerd Passport callback
-            }
+  function (email, password, done) {
+    db.User.findOne({  // Using sequelize model function
+      where: { // Take an object with options where self explanatory
+        'email': email
+      }
+    }).then(function (user) { // Sequelize return a promise with user in callback
+      if (user == null) { // Checking if user exsists
+        return done(null, false)  // Standerd Passport callback
+      }
 
-            if (password == user.password) { // use your password hash comparing logic here for security
-                return done(null, user) // Standerd Passport callback
-            }
-            return done(null, false) // Standerd Passport callback
-        })
-    }
+      if (password == user.password) { // use your password hash comparing logic here for security
+        return done(null, user) // Standerd Passport callback
+      }
+      return done(null, false) // Standerd Passport callback
+    })
+  }
 ))
 
 // for maintaining session
- passport.serializeUser(function(user, done) { // Standered Serialize for session
-    done(null, user.id)
+passport.serializeUser(function (user, done) { // Standered Serialize for session
+  done(null, user.id)
 })
 
-passport.deserializeUser(function(id, done) {
-    db.User.findOne({ // Using sequelize model functoin
-        where: {
-            'id': id
-        }
-    }).then(function (user) {
-        if (user == null) {
-            done(new Error('Wrong user id.'))
-        }
+passport.deserializeUser(function (id, done) {
+  db.User.findOne({ // Using sequelize model functoin
+    where: {
+      'id': id
+    }
+  }).then(function (user) {
+    if (user == null) {
+      done(new Error('Wrong user id.'))
+    }
 
-        done(null, user) // Standerd deserailize callback
-    })
+    done(null, user) // Standerd deserailize callback
+  })
 })
 
 // Post request handling route for login
@@ -85,24 +85,24 @@ passport.deserializeUser(function(id, done) {
 
 // Standerd middleware taking req, res and next as parameters
 function loggedIn(req, res, next) {
-    if (req.user) { // if request contains the user
-        next(); // call next
-    } else {
-        res.status(403).send("Unauthorized")  // throwing unauthorized
-    }
+  if (req.user) { // if request contains the user
+    next(); // call next
+  } else {
+    res.status(403).send("Unauthorized")  // throwing unauthorized
+  }
 }
 
 // Protected route
-app.get('/',loggedIn, (req,res)=>{
+app.get('/', loggedIn, (req, res) => {
   res.send("YOU ARE AUTHENTICATED");
 })
 
 
 
 // Handle logout
-app.get('/logout',(req,res)=>{
-    req.logout();
-    res.send("YOU ARE NOW LOGGED OUT")
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.send("YOU ARE NOW LOGGED OUT")
 })
 
 
@@ -110,6 +110,8 @@ require("./routes/loginRoutes")(app);
 require("./routes/itemRoutes")(app);
 // require("./routes/cartRoutes")(app)
 
+
+console.log('=------------------------------------------------------------------------------')
 
 db.sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, function () {
