@@ -81,6 +81,9 @@ class LoginForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+import passport from "passport"
+import axios from "axios"
+class Login extends Component {
 
   handleChange(event) {
     this.setState({
@@ -159,6 +162,25 @@ class LoginForm extends Component {
         //                 <div className="col-7"></div>
         //                 <button
         //                     className="btn btn-primary col-1 col-mr-auto"
+
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const user = {
+            email: this.state.email,
+            password: this.state.password,
+        }
+        console.log(user);
+
+        axios.get('http://localhost:8080/login', function(req, res){
+            if(req.isAuthenticated()) {
+              res.redirect('/');
+            } else {
+              res.send("unauthorized") }
+              
+            }
+            );
+    }
 
         //                     onClick={this.handleSubmit}
         //                     type="submit">Login</button>
