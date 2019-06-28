@@ -10,7 +10,15 @@
 }
 .card{
   width: 300px;
+  
+  /* height: 300px; */
 }
+/* .card-image {
+  max-height: 50px;
+} */
+/* .card-content {
+  height: 50px;
+} */
 .card .card-image .card-title{
   color: black;
   font-weight: 400

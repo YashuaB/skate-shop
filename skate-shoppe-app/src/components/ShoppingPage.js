@@ -57,32 +57,32 @@ class ShoppingPage extends Component {
         {this.state.inventory ? (
           this.state.inventory.map(item => {
             return (
-                <div className="card" key={item.id}>
-                  <div className="card-image">
-                    <img src={item.image} alt={item.itemName} />
-                    <span className="card-title">{this.state.itemName}</span>
-                    <span
-                      to="/"
-                      className="btn-floating halfway-fab waves-effect waves-light grey"
-                      onClick={() => {
-                        this.handleClick(item.id);
-                      }}
-                    >
-                      <i className="material-icons">add</i>
-                    </span>
-                  </div>
-                  <div className="card-content">
-                    <p>{item.itemName}</p>
-                    <p>
-                      <b>Price: ${item.price}</b>
-                    </p>
-                  </div>
+              <div className="card" key={item.id}>
+                <div className="card-image">
+                  <img src={item.image} alt={item.itemName} />
+                  <span className="card-title">{this.state.itemName}</span>
+                  <span
+                    to="/"
+                    className="btn-floating halfway-fab waves-effect waves-light grey"
+                    onClick={() => {
+                      this.handleClick(item.id);
+                    }}
+                  >
+                    <i className="material-icons">add</i>
+                  </span>
                 </div>
+                <div className="card-content">
+                  <p>{item.itemName}</p>
+                  <p>
+                    <b>Price: ${item.price}</b>
+                  </p>
+                </div>
+              </div>
             );
           })
         ) : (
-          <div>Hi</div>
-        )}
+            <div>Hi</div>
+          )}
       </div>
     );
 
