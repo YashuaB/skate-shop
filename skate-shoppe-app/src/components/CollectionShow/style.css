@@ -1,0 +1,37 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.collectionImage {
+  background: url("../../images/collection2.jpg");
+  width: 50%;
+  height: 600px;
+}
+
+.collectionImage2 {
+  background: url("../../images/collection3.jpeg");
+  width: 50%;
+  height: 600px;
+}
+
+.collectionImage3 {
+    background: url("../../images/collection1.jpg");
+    width: 50%;
+    height: 600px;
+  }
+
+
+.buttonCol {
+  height: 600px;
+}
+
+.button {
+position: relative;
+    top: 50%;
+    left: 40%;
+}
+
+.row {
+    margin: 0 !important;
+}
