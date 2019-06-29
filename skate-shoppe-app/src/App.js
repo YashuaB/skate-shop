@@ -25,7 +25,6 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/profile" component={SideNav} />
         </Switch>
-        <Footer />
       </div>
     </Router>
   );

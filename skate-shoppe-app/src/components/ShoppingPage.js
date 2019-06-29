@@ -53,6 +53,7 @@ class ShoppingPage extends Component {
     // Renders items on the page in cards.
     // let itemList = this.props.items.map(item => {
     return (
+      // <h3 className="center">SHOP</h3>
       <div className="box">
         {this.state.inventory ? (
           this.state.inventory.map(item => {
@@ -90,7 +91,6 @@ class ShoppingPage extends Component {
     // Item list displayed here.
     // return (
     //   <div className="container">
-    //     <h3 className="center">SHOP</h3>
     //     <div className="box">{itemList}</div>
     //   </div>
     // );

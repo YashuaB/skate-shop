@@ -62,6 +62,8 @@ const initState = {
   addedItems: [],
   total: 0
 };
+
+
 const ShoppingCartReducer = (state = initState, action) => {
   //ADD ITEM TO THE CART (ShoppingPage)
   if (action.type === ADD_ITEM) {

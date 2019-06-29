@@ -1,13 +1,17 @@
+/* This is the div where the items are displayed after the data is pulled from the database */
 .box{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 55px;
 }
+
 .material-icons{
   font-size: 2.4em;
   cursor: pointer;
 }
+
+/* Card for the single item */
 .card{
   width: 300px;
   
@@ -39,6 +43,7 @@
 }
 .collection .collection-item img{
   width: 150px;
+  height: 250px;
   margin-right: 25px;
 }
 .item-desc{
