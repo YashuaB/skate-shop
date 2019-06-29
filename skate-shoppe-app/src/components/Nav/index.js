@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './style.css';
 import Profile from "../SideNav"
 
- const Navbar = () => {
+ const Navbar = ({ match }) => {
     return(
             <nav className="nav-wrapper">
                 <div className="container">

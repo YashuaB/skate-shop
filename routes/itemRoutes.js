@@ -32,99 +32,74 @@ module.exports = function(app) {
     }
   })
 
-  app.get("/inventory/pants/:pants?", function (req, res) {
-    if (req.params.pants) {
-      db.Inventory.findOne({
+  app.get("/inventory/:item", function (req, res) {
+    const item = req.params.item;
+      db.Inventory.findAll({
         where: {
-          clothingType: req.params.pants
+          category: item
         }
       }).then(function (dbInventory) {
         res.json(dbInventory)
       })
-    } else {
-      db.Inventory.findAll({
-
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-
-    }
   })
 
-  app.get("/inventory/shirts/:shirt?", function (req, res) {
-    if (req.params.shirt) {
-      db.Inventory.findOne({
-        where: {
-          clothingType: req.params.shirt
-        }
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-    } else {
-      db.Inventory.findAll({
+  app.get("/inventory/shirts", function (req, res) {
+    db.Inventory.findAll({
+      where: {
+        category: "shirt"
+      }
+    }).then(function (dbInventory) {
+      res.json(dbInventory)
+    })
+})
 
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-
+app.get("/inventory/decks", function (req, res) {
+  debugger;
+  db.Inventory.findAll({
+    where: {
+      category: "decks"
     }
-  }) 
+  }).then(function (dbInventory) {
+    res.json(dbInventory)
+  })
+})
 
-  // app.get("/inventory/decks/:deck?"), function (req, res) {
-  //   if (req.params.deck) {
+  // app.get("/inventory/price", function (req, res) {
+  //   if (req.params.price) {
   //     db.Inventory.findOne({
   //       where: {
-  //         itemName:req.params.deck
+  //         price:req.params.price
   //       }
   //     }).then(function (dbInventory) {
   //       res.json(dbInventory)
   //     })
   //   } else {
   //     db.Inventory.findAll({
-       
+
   //     }).then(function (dbInventory) {
   //       res.json(dbInventory)
   //     })
 
   //   }
-  // } 
+  // })
 
-  app.get("/inventory/price", function (req, res) {
-    if (req.params.price) {
-      db.Inventory.findOne({
-        where: {
-          price:req.params.price
-        }
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-    } else {
-      db.Inventory.findAll({
+  // app.get("/inventory/category/:category?", function (req, res) {
+  //   if (req.params.price) {
+  //     db.Inventory.findOne({
+  //       where: {
+  //       category:req.params.category
+  //       }
+  //     }).then(function (dbInventory) {
+  //       res.json(dbInventory)
+  //     })
+  //   } else {
+  //     db.Inventory.findAll({
 
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
+  //     }).then(function (dbInventory) {
+  //       res.json(dbInventory)
+  //     })
 
-    }
-  })
-
-  app.get("/inventory/category/:category?", function (req, res) {
-    if (req.params.price) {
-      db.Inventory.findOne({
-        where: {
-        category:req.params.category
-        }
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-    } else {
-      db.Inventory.findAll({
-
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-
-    }
-  }) 
+  //   }
+  // }) 
 
 }

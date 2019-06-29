@@ -55,14 +55,14 @@ module.exports = function (sequelize, DataTypes) {
           allowNull:true
         },
       
-      isAdded: {
-        type: DataTypes.BOOLEAN,
-        allowNull:true
-      },
-      isPurchased: {
-        type: DataTypes.BOOLEAN,
-        allowNull:true
-      },
+      // isAdded: {
+      //   type: DataTypes.BOOLEAN,
+      //   allowNull:true
+      // },
+      // isPurchased: {
+      //   type: DataTypes.BOOLEAN,
+      //   allowNull:true
+      // },
      
       
 
@@ -85,32 +85,7 @@ module.exports = function (sequelize, DataTypes) {
     updatedAt: {
       type: DataTypes.DATE,
       allowNull: true
-    },
-    // sex: {
-    //   type:DataTypes.STRING,
-    //   allowNull: true
-    // },
-    // size: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: true
-    // },
-
-    // category:{
-    //     type: DataTypes.STRING,
-    //     allowNull:true
-    //   },
-
-    // isAdded: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: true
-    // },
-    // isPurchased: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: true
-    // },
-
-
-
+    }
   })
 
   return Inventory;

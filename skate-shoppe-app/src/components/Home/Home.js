@@ -48,14 +48,6 @@ const Home = () => {
           </p>
         </div>
       </div>
-      {/* <Parallax
-        blur={10}
-        bgImage={require("../../images/parallax1.jpg")}
-        bgImageAlt="the cat"
-        strength={100}
-      >
-        <div style={{ height: "500px" }} />
-      </Parallax> */}
       <Parallax strength={500}>
         <Background className="custom-bg">
           <img
