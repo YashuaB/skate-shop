@@ -16,7 +16,8 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-spring": "^8.0.25",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "sal.js": "^0.6.1"
   },
   "scripts": {
     "start": "react-scripts start",

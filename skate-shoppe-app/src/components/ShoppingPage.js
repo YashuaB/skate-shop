@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addItem } from "./actions/shoppingActions";
 import axios from "axios";
+import {Spring} from 'react-spring/renderprops'
 
+
+var divstyle= {
+background: 'steelblue',
+};
 
 
 class ShoppingPage extends Component {
@@ -59,12 +64,19 @@ class ShoppingPage extends Component {
     // let itemList = this.props.items.map(item => {
     return (        
       
-      
+
       <div className="box">
         {this.state.inventory ? (
           this.state.inventory.map(item => {
             return (
-                <div className="card" key={item.id}>
+              <div>
+              <Spring
+              from={{ opacity:0 }}
+              to={{ opacity:1 }}
+              >
+                {props => (
+                   <div style={props}>
+                  <div className="card" key={item.id} style={divstyle}>
                   <div className="card-image">
                     <img src={item.image} alt={item.itemName} />
                     <span className="card-title">{this.state.itemName}</span>
@@ -83,15 +95,28 @@ class ShoppingPage extends Component {
                     <p>
                       <b>Price: ${item.price}</b>
                     </p>
+                    
                   </div>
                 </div>
+
+                  </div>
+                )}
+              </Spring>
+
+                      </div>
+                  
+                
             );
+            
           })
+          
         ) : (
+          
           <div>Hi</div>
           
         )}
       </div>
+      
       
     );
 
