@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import passport from "passport"
+// import passport from "passport"
 import axios from "axios"
 class Login extends Component {
 
@@ -20,6 +20,14 @@ class Login extends Component {
         })
     }
 
+      //         axios.get('http://localhost:3001/login', function (req, res) {
+//         if (req.session.userLogged) {
+//             res.send("welcome")
+//         } else {
+//             res.send("unauthorized")} 
+// })
+   // username: "dingdong", email: "bigdong@yahoo.com", password: "$2a$10$zD3T4ehXjgqQsByEiK8Ce.yBrsFDkYH/m2T7yDBBMiSNusqTzgUaC", updatedAt: "2019-06-27T00:46:52.143Z", …}
+
 
 
     handleSubmit(e) {
@@ -30,12 +38,11 @@ class Login extends Component {
         }
         console.log(user);
 
-        axios.get('http://localhost:8080/login', function(req, res){
-            if(req.isAuthenticated()) {
-              res.redirect('/');
-            } else {
-              res.send("unauthorized") }
-              
+        axios.get('/login', function(req, res){
+            if (req.session.userLogged) {
+                            res.send("welcome")
+                        } else {
+                            res.send("unauthorized")}
             }
             );
     }

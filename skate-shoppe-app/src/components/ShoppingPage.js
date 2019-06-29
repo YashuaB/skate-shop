@@ -13,7 +13,7 @@ class ShoppingPage extends Component {
     console.log("test");
 
     axios
-      .get("http://localhost:8080/all-inventory")
+      .get("http://localhost:3001/all-inventory")
       .then(res => {
         const data = res.data;
         this.setState({ inventory: data });

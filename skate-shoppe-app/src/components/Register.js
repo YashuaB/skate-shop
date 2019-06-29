@@ -31,13 +31,13 @@ class Register extends Component {
         }
         console.log(user);
 
-        axios.post("http://localhost:8080/register", { user })
+        axios.post("3001/register", { user })
         .then(res => {
           console.log(res);
           console.log(res.data);
 
           if(res.data){
-              console.log("you are logged in")
+              console.log("you are now registered")
               this.setState({
                   redirectTo: "/login"
               })
