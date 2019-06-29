@@ -1,59 +1,58 @@
-module.exports = function(sequelize, DataTypes){
-  
-  var Inventory = sequelize.define("Inventory", {
-     itemName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    price: {
-      type: DataTypes.DECIMAL(10,2),
-      allowNull: false
-      // validate:{
-      //   //is there going to validation needed here  
-      // }
-    },
-     quantity:{
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-      image: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      createdAt: {
-        type: DataTypes.DATE,
-        allowNull: true
-      },
-      updatedAt: {
-        type: DataTypes.DATE,
-        allowNull: true
-      },
-      // sex: {
-      //   type:DataTypes.STRING,
-      //   allowNull: true
-      // },
-      // size: {
-      //   type: DataTypes.INTEGER,
-      //   allowNull: true
-      // },
-      
-      category:{
-          type: DataTypes.STRING,
-          allowNull:true
-        },
-      
-      isAdded: {
-        type: DataTypes.BOOLEAN,
-        allowNull:true
-      },
-      isPurchased: {
-        type: DataTypes.BOOLEAN,
-        allowNull:true
-      },
-     
-      
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-  })
+const inventorySchema = new Schema({
 
-  return Inventory;
-}
+  item: { type: String, unique: false, required: false },
+   price: { type: String, unique: false, required: false },
+   image: { type: String, unique: false, required: false },
+	quantity: { type: String, unique: false, required: false },
+   category: { type: String, unique: false, required: false }
+
+})
+
+// Define schema methods
+
+
+const Inventory = mongoose.model('Inventory', inventorySchema)
+module.exports = Inventory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

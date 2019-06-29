@@ -1,86 +1,135 @@
-import React, { Component } from "react";
-// import passport from "passport"
-import axios from "axios"
-class Login extends Component {
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import axios from 'axios'
 
+class LoginForm extends Component {
     constructor() {
-        super();
+        super()
         this.state = {
-            email: "",
-            password: "",
-            errors: {}
+
+            username: '',
+            password: '',
+            redirectTo: null,
+            loggedIn: false,
         }
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+  
     }
 
-    handleInputChange(e) {
+    handleChange(event) {
         this.setState({
-            [e.target.name]: e.target.value
+            [event.target.name]: event.target.value
         })
     }
 
-      //         axios.get('http://localhost:3001/login', function (req, res) {
-//         if (req.session.userLogged) {
-//             res.send("welcome")
-//         } else {
-//             res.send("unauthorized")} 
-// })
-   // username: "dingdong", email: "bigdong@yahoo.com", password: "$2a$10$zD3T4ehXjgqQsByEiK8Ce.yBrsFDkYH/m2T7yDBBMiSNusqTzgUaC", updatedAt: "2019-06-27T00:46:52.143Z", …}
+    handleSubmit(event) {
+        event.preventDefault()
+        console.log('handleSubmit')
 
+       
+         
 
+        axios
+            .post('http://localhost:8080/login', {
+                username: this.state.username,
+                password: this.state.password
+            })
+            .then(response => {
+                console.log('login response: ')
+                console.log(response)
+                if (response.status === 200) {
+                    
+                    this.setState({
+                        loggedIn: true,
+                        username: response.data.username
+                    })
+                    console.log(response.data.username)
+                    // update the state to redirect to home
+                    this.setState({
+                        redirectTo: '/'
+                    })
+                }
+            }).catch(error => {
+                console.log('login error: ')
+                console.log(error);
+                
+            })
 
-    handleSubmit(e) {
-        e.preventDefault();
-        const user = {
-            email: this.state.email,
-            password: this.state.password,
-        }
-        console.log(user);
-
-        axios.get('/login', function(req, res){
-            if (req.session.userLogged) {
-                            res.send("welcome")
-                        } else {
-                            res.send("unauthorized")}
-            }
-            );
+            axios.get('http://localhost:8080/login').then(response => {
+              console.log('Get user response: ')
+              console.log(response.data)
+              if (response.data.user) {
+                console.log('Get User: There is a user saved in the server session: ')
+        
+                this.setState({
+                  loggedIn: true,
+                  username: response.data.user.username
+                })
+              } else {
+                console.log( response.data.username)
+                console.log('Get user: no user');
+                this.setState({
+                  loggedIn: false,
+                  username: null
+                })
+              }
+            })
+          
     }
 
     render() {
-        return(
-        <div className="container z-depth-3" style={{ marginTop: "50px", width: "700px", backgroundColor: "white", padding:"35px"}}>
-            <h2 style={{marginBottom: "40px"}}>Login</h2>
-            <form onSubmit={ this.handleSubmit }>
-                <div className="form-group">
-                    <input
-                    type="email"
-                    placeholder="Email"
-                    className="form-control"
-                    name="email"
-                    onChange={ this.handleInputChange }
-                    value={ this.state.email }
-                    />
+        if (this.state.redirectTo) {
+            return <Redirect to={{ pathname: this.state.redirectTo }} />
+        } else {
+            return (
+                <div>
+                    <h4>Login</h4>
+                    <form className="form-horizontal">
+                        <div className="form-group">
+                            <div className="col-1 col-ml-auto">
+                                <label className="form-label" htmlFor="username">Username</label>
+                            </div>
+                            <div className="col-3 col-mr-auto">
+                                <input className="form-input"
+                                    type="text"
+                                    id="username"
+                                    name="username"
+                                    placeholder="Username"
+                                    value={this.state.username}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <div className="col-1 col-ml-auto">
+                                <label className="form-label" htmlFor="password">Password: </label>
+                            </div>
+                            <div className="col-3 col-mr-auto">
+                                <input className="form-input"
+                                    placeholder="password"
+                                    type="password"
+                                    name="password"
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="form-group ">
+                            <div className="col-7"></div>
+                            <button
+                                className="btn btn-primary col-1 col-mr-auto"
+                               
+                                onClick={this.handleSubmit}
+                                type="submit">Login</button>
+                        </div>
+                    </form>
                 </div>
-                <div className="form-group">
-                    <input
-                    type="password"
-                    placeholder="Password"
-                    className="form-control"
-                    name="password"
-                    onChange={ this.handleInputChange }
-                    value={ this.state.password }
-                    />
-                </div>
-                <div className="form-group">
-                    <button type="submit" className="btn btn-primary">
-                        Login User
-                    </button>
-                </div>
-            </form>
-        </div>
-        )
+            )
+        }
     }
 }
 
-export default Login;
+export default LoginForm
+
+

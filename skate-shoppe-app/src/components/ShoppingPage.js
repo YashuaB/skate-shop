@@ -13,10 +13,12 @@ class ShoppingPage extends Component {
     console.log("test");
 
     axios
-      .get("http://localhost:3001/all-inventory")
+      .get("/all-inventory")
       .then(res => {
+      
         const data = res.data;
         this.setState({ inventory: data });
+        
       })
       .catch(error => {
         console.log(error);
@@ -53,36 +55,37 @@ class ShoppingPage extends Component {
     // Renders items on the page in cards.
     // let itemList = this.props.items.map(item => {
     return (
+      // <h3 className="center">SHOP</h3>
       <div className="box">
         {this.state.inventory ? (
           this.state.inventory.map(item => {
             return (
-                <div className="card" key={item.id}>
-                  <div className="card-image">
-                    <img src={item.image} alt={item.itemName} />
-                    <span className="card-title">{this.state.itemName}</span>
-                    <span
-                      to="/"
-                      className="btn-floating halfway-fab waves-effect waves-light grey"
-                      onClick={() => {
-                        this.handleClick(item.id);
-                      }}
-                    >
-                      <i className="material-icons">add</i>
-                    </span>
-                  </div>
-                  <div className="card-content">
-                    <p>{item.itemName}</p>
-                    <p>
-                      <b>Price: ${item.price}</b>
-                    </p>
-                  </div>
+              <div className="card" key={item.id}>
+                <div className="card-image">
+                  <img src={item.image} alt={item.itemName} />
+                  <span className="card-title">{this.state.itemName}</span>
+                  <span
+                    to="/"
+                    className="btn-floating halfway-fab waves-effect waves-light grey"
+                    onClick={() => {
+                      this.handleClick(item.id);
+                    }}
+                  >
+                    <i className="material-icons">add</i>
+                  </span>
                 </div>
+                <div className="card-content">
+                  <p>{item.itemName}</p>
+                  <p>
+                    <b>Price: ${item.price}</b>
+                  </p>
+                </div>
+              </div>
             );
           })
         ) : (
-          <div>Hi</div>
-        )}
+            <div>Hi</div>
+          )}
       </div>
     );
 
@@ -90,7 +93,6 @@ class ShoppingPage extends Component {
     // Item list displayed here.
     // return (
     //   <div className="container">
-    //     <h3 className="center">SHOP</h3>
     //     <div className="box">{itemList}</div>
     //   </div>
     // );

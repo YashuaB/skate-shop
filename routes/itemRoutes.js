@@ -1,130 +1,66 @@
-var db = require("../models")
+
+const Item = require("../models/items.js")
 
 module.exports = function(app) {
 
-  
+
 
   app.get("/all-inventory", function(req, res){
 
-      db.Inventory.findAll({})
-      .then(function (dbInventory) {
-        res.json(dbInventory)
-      })
+    Item.find({}, (err, item) => {
+      if (err) {
+        console.log('User.js post error: ', err)
+      } else if (item) {
+        res.json(item)
+      }
     })
+})
+
+
+
+app.get("/all-inventory/:singleItem?", function(req, res){
+
+  Item.findOne({name:req.params}, (err, item) => {
+    if (err) {
+      console.log('User.js post error: ', err)
+    } else if (item) {
+      res.json(req.params)
+    }
+  })
+})
+
+
+app.get("/all-inventory/shirt?", function(req, res){
+
+  Item.find({category:"shirt"}, (err, item) => {
+    if (err) {
+      console.log('User.js post error: ', err)
+    } else if (item) {
+      res.json(req.params)
+    }
+  })
+})
+
+app.get("/all-inventory/pants", function(req, res){
+
+  Item.find({category:"pants"}, (err, item) => {
+    if (err) {
+      console.log('User.js post error: ', err)
+    } else if (item) {
+      res.json(req.params)
+    }
+  })
+})
+
+app.get("/all-inventory/deck", function(req, res){
+
+  Item.findOne({category:"deck"}, (err, item) => {
+    if (err) {
+      console.log('User.js post error: ', err)
+    } else if (item) {
+      res.json(req.params)
+    }
+  })
+})
   
-
-  app.get("/all-inventory/:singleItem?", function(req, res){
-
-    if (req.params.singleItem) {
-      db.Inventory.findOne({
-        where: {
-          itemName: req.params.singleItem
-
-        }
-      }).then(function (dbInventory){
-        res.json(dbInventory)
-      })
-    }
-    else {
-      db.Inventory.findAll({}).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-    }
-  })
-
-  app.get("/inventory/pants/:pant?", function (req, res) {
-    if (req.params.pant) {
-      db.Inventory.findOne({
-        where: {
-          clothingType: req.params.pant
-        }
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-    } else {
-      db.Inventory.findAll({
-
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-
-    }
-  })
-
-  app.get("/inventory/shirts/:shirt?", function (req, res) {
-    if (req.params.shirt) {
-      db.Inventory.findOne({
-        where: {
-          clothingType: req.params.shirt
-        }
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-    } else {
-      db.Inventory.findAll({
-
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-
-    }
-  }) 
-
-  // app.get("/inventory/decks/:deck?"), function (req, res) {
-  //   if (req.params.deck) {
-  //     db.Inventory.findOne({
-  //       where: {
-  //         itemName:req.params.deck
-  //       }
-  //     }).then(function (dbInventory) {
-  //       res.json(dbInventory)
-  //     })
-  //   } else {
-  //     db.Inventory.findAll({
-       
-  //     }).then(function (dbInventory) {
-  //       res.json(dbInventory)
-  //     })
-
-  //   }
-  // } 
-
-  app.get("/inventory/price", function (req, res) {
-    if (req.params.price) {
-      db.Inventory.findOne({
-        where: {
-          price:req.params.price
-        }
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-    } else {
-      db.Inventory.findAll({
-
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-
-    }
-  })
-
-  app.get("/inventory/category/:category?", function (req, res) {
-    if (req.params.price) {
-      db.Inventory.findOne({
-        where: {
-        category:req.params.category
-        }
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-    } else {
-      db.Inventory.findAll({
-
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-
-    }
-  }) 
-
 }

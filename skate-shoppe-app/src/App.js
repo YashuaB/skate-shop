@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer";
 import LogIn from "./components/LogIn";
-import Register from "./components/Register";
+// import Register from "./components/Register";
+import Signup from "./components/Signup";
 import ShoppingPage from "./components/ShoppingPage";
 import ShoppingCart from "./components/ShoppingCart";
 // import SideNav from "./components/SideNav";
@@ -22,10 +23,10 @@ function App() {
           <Route exact path="/shop" component={ShoppingPage} />
           <Route exact path="/cart" component={ShoppingCart} />
           <Route exact path="/login" component={LogIn} />
-          <Route exact path="/register" component={Register} />
+          <Route exact path="/register" component={Signup} />
+          {/*<Route exact path="/register" component={Register} />*/}
            {/*<Route exact path="/profile" component={SideNav} />*/} 
         </Switch>
-        <Footer />
       </div>
     </Router>
   );
