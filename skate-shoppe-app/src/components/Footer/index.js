@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-const Navbar = () => {
+const Footer = () => {
   return (
     <footer className="page-footer">
       <div className="container">
@@ -42,9 +42,10 @@ const Navbar = () => {
       </div>
       <div className="footer-copyright">
         <div className="container">© 2019 Copyright</div>
+
       </div>
     </footer>
   );
 };
 
-export default Navbar;
+export default Footer;

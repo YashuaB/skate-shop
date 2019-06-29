@@ -1,27 +1,29 @@
-import React from "react";
+import React, { Component } from "react";
 import { SideNav, SideNavItem, Button } from "react-materialize";
 
-const sideNav = {
+class Profile extends Component  {
   render() {
     return (
       <div>
-        <SideNav trigger={<Button />} options={{ closeOnClick: true }}>
+        <SideNav trigger={<i className="material-icons">account_circle</i> } options={{ closeOnClick: true }}>
           <SideNavItem
             userView
             user={{
-              background: "https://placeimg.com/640/480/tech",
-              image: "static/media/react-materialize-logo.824c6ea3.svg",
-              name: "John Doe"
+              background: "https://s3.envato.com/files/218429202/Preview_Image_.jpg",
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1hm6RmFq5rHHvsqhAgJphR0oraHldYRf8XVF1xbqT00HTfGSY",
+              name: "Daenerys Targaryen"
             }}
           />
-          <SideNavItem href="#!icon" icon="cloud">
-            First Link With Icon
+          <SideNavItem waves href="#!icon" icon="cloud">
+            Account Information
           </SideNavItem>
-          <SideNavItem href="#!second">Second Link</SideNavItem>
-          <SideNavItem divider />
-          <SideNavItem subheader>Subheader</SideNavItem>
-          <SideNavItem waves href="#!third">
-            Third Link With Waves
+          <SideNavItem waves href="#!second" icon="history">Order History</SideNavItem>
+          <SideNavItem waves href="#!third"icon="room">Shipping Address</SideNavItem>
+          <SideNavItem waves href="#!forth" icon="https">
+            Change Password
+          </SideNavItem>
+          <SideNavItem waves href="#!fifth" icon="person">
+            Log Out
           </SideNavItem>
         </SideNav>
       </div>
@@ -121,4 +123,4 @@ const SideNav = () => {
 //   }
 // }
 
-export default sideNav;
+export default Profile;

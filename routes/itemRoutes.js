@@ -32,11 +32,11 @@ module.exports = function(app) {
     }
   })
 
-  app.get("/inventory/pants/:pant?", function (req, res) {
-    if (req.params.pant) {
+  app.get("/inventory/pants/:pants?", function (req, res) {
+    if (req.params.pants) {
       db.Inventory.findOne({
         where: {
-          clothingType: req.params.pant
+          clothingType: req.params.pants
         }
       }).then(function (dbInventory) {
         res.json(dbInventory)
