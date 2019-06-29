@@ -14,7 +14,6 @@ const Home = () => {
             alt="Skateboard"
           />
         </Background>
-        {/* <div style={{ height: "500px" }} /> */}
         {/* Search bar */}
         <div className="white">
           <ul className="hide-on-med-and-down right">

@@ -45,10 +45,10 @@ module.exports = function(sequelize, DataTypes){
       //   allowNull: true
       // },
       
-      // category:{
-      //     type: DataTypes.STRING,
-      //     allowNull:true
-      //   },
+      category:{
+          type: DataTypes.STRING,
+          allowNull:true
+        },
       
       // isAdded: {
       //   type: DataTypes.BOOLEAN,
