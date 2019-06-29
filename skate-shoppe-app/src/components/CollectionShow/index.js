@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import "./style.css";
+import axios from 'axios';
 
 class collectionShow extends Component {
-  constructor() {
-    super();
-    this.state = {
-      collections: "",
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  state = {
+    inventory: []
   }
 
   handleInputChange(e) {
@@ -17,13 +13,22 @@ class collectionShow extends Component {
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const collection = {
-      name: this.state.name,
-      image: this.state.image
-    };
-    console.log(collection);
+  componentDidMount(){
+    // this.getPants();
+    console.log("you clicked");
+    
+  }
+  
+  getPants = event => {
+    axios
+      .get("/inventory/pants/:pants?")
+      .then(res => {
+        const data = res.data;
+        this.setState({ inventory: data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
@@ -33,12 +38,12 @@ class collectionShow extends Component {
         <div className="col s6 collectionImage">
         </div>
         <div className="col s6 buttonCol">
-        <a class="waves-effect grey lighten-4 black-text btn-large button">Shop Pants</a>
+        <a className="waves-effect grey lighten-4 black-text btn-large button">Shop Pants</a>
         </div>
       </div>
       <div className="row">
         <div className="col s6 buttonCol">
-        <a class="waves-effect grey lighten-4 black-text btn-large button">Shop Decks</a>
+        <a className="waves-effect grey lighten-4 black-text btn-large button">Shop Decks</a>
         </div>
         <div className="col s6 collectionImage2">
         </div>
@@ -47,7 +52,7 @@ class collectionShow extends Component {
       <div className="col s6 collectionImage3">
         </div>
         <div className="col s6 buttonCol">
-        <a class="waves-effect grey lighten-4 black-text btn-large button">Shop Shirts</a>
+        <a onClick={(e) => this.getPants} className="waves-effect grey lighten-4 black-text btn-large button">Shop Shirts</a>
         </div>
         
       </div>

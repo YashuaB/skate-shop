@@ -10,8 +10,9 @@ module.exports = function(app){
   app.post('/register', (req, res) => {
     console.log('user signup');
     var username = req.body.user.username
+    var email = req.body.user.email
     var password = req.body.user.password
-
+    
     // ADD VALIDATION
             User.findOne({ username: username }, (err, user) => {
                 if (err) {
@@ -23,6 +24,7 @@ module.exports = function(app){
                 else {
                     const newUser = new User({
                         username: username,
+                        email: email,
                         password: password
                     })
             newUser.save((err, savedUser) => {
@@ -44,7 +46,7 @@ app.post(
     (req, res) => {
         console.log('logged in', req.user);
         var userInfo = {
-            username: req.user.username
+            username: req.body.user.username
         };
         res.send(userInfo);
     }

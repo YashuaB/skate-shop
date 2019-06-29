@@ -60,14 +60,14 @@ class LoginForm extends Component {
               console.log('Get user response: ')
               console.log(response.data)
               if (response.data.user) {
-                console.log('Get User: There is a user saved in the server session: ')
+                console.log('Get User: There is a user saved in the server session: ' )
         
                 this.setState({
                   loggedIn: true,
-                  username: response.data.user.username
+                  username: response.data.user
                 })
               } else {
-                console.log( response.data.username)
+                console.log( response.data.user)
                 console.log('Get user: no user');
                 this.setState({
                   loggedIn: false,
