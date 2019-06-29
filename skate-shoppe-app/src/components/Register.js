@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-
+import axios from "axios"
 class Register extends Component {
 
     constructor() {
         super();
         this.state = {
-            name: "",
+            username: "",
             email: "",
             password: "",
-            password_confirm: "",
+            // password_confirm: "",
             errors: {}
         }
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -20,22 +20,42 @@ class Register extends Component {
             [e.target.name]: e.target.value
         })
     }
-
+    
     handleSubmit(e) {
         e.preventDefault();
         const user = {
-            name: this.state.name,
+            username: this.state.name,
             email: this.state.email,
             password: this.state.password,
-            password_confirm: this.state.password_confirm
+            // password_confirm: this.state.password_confirm
         }
         console.log(user);
+
+        axios.post("http://localhost:8080/register", { user })
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+
+          if(res.data){
+              console.log("you are logged in")
+              this.setState({
+                  redirectTo: "/login"
+              })
+          } else {
+              console.log("not able to sign up")
+          }
+        //   res.redirect("/")
+        })
     }
+
+   
+
+  
 
     render() {
         return(
         <div className="container z-depth-3" style={{ marginTop: "50px", width: "700px", backgroundColor: "white", padding:"35px", oppacity: "0.5"}}>
-            <h2 style={{marginBottom: "40px"}}>Registration</h2>
+            <h2 style={{marginBottom: "20px", marginTop: "0px"}}>Registration</h2>
             <form onSubmit={ this.handleSubmit }>
                 <div className="form-group">
                     <input
@@ -89,3 +109,7 @@ class Register extends Component {
 }
 
 export default Register;
+
+
+
+

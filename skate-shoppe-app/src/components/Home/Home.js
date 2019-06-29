@@ -1,11 +1,13 @@
 import React from "react";
 import { Parallax, Background } from "react-parallax";
+import CollectionShow from '../CollectionShow/index';
 import "./style.css";
+import Footer from "../Footer";
 
 const Home = () => {
   return (
     <div>
-      <Parallax>
+      <Parallax strength ="500">
       <Background className="custom-bg">
           <img
             src="https://images.unsplash.com/photo-1477895082347-7ec2776ba66c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920&h=780&fit=crop&ixid=eyJhcHBfaWQiOjF9"
@@ -64,6 +66,8 @@ const Home = () => {
         </Background>
         <div style={{ height: "500px" }} />
       </Parallax>
+      <CollectionShow />
+      <Footer />
     </div>
   );
 };
