@@ -50,19 +50,19 @@ module.exports = function (sequelize, DataTypes) {
       //   allowNull: true
       // },
       
-      category:{
-          type: DataTypes.STRING,
-          allowNull:true
-        },
+      // category:{
+      //     type: DataTypes.STRING,
+      //     allowNull:true
+      //   },
       
-      isAdded: {
-        type: DataTypes.BOOLEAN,
-        allowNull:true
-      },
-      isPurchased: {
-        type: DataTypes.BOOLEAN,
-        allowNull:true
-      },
+      // isAdded: {
+      //   type: DataTypes.BOOLEAN,
+      //   allowNull:true
+      // },
+      // isPurchased: {
+      //   type: DataTypes.BOOLEAN,
+      //   allowNull:true
+      // },
      
       
 
@@ -74,18 +74,18 @@ module.exports = function (sequelize, DataTypes) {
     //   type: DataTypes.STRING,
     //   allowNull: true
     // },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
+    // image: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // // },
+    // createdAt: {
+    //   type: DataTypes.DATE,
+    //   allowNull: true
+    // },
+    // updatedAt: {
+    //   type: DataTypes.DATE,
+    //   allowNull: true
+    // },
     // sex: {
     //   type:DataTypes.STRING,
     //   allowNull: true
