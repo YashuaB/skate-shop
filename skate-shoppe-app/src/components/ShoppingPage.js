@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { addItem } from "./actions/shoppingActions";
 import axios from "axios";
 
+
+
 class ShoppingPage extends Component {
   //Adds the clicked item to the shopping cart.
   state = {
@@ -49,10 +51,15 @@ class ShoppingPage extends Component {
     this.props.addItem(id);
   };
 
+
+
   render() {
+    
     // Renders items on the page in cards.
     // let itemList = this.props.items.map(item => {
-    return (
+    return (        
+      
+      
       <div className="box">
         {this.state.inventory ? (
           this.state.inventory.map(item => {
@@ -82,8 +89,10 @@ class ShoppingPage extends Component {
           })
         ) : (
           <div>Hi</div>
+          
         )}
       </div>
+      
     );
 
     // });
@@ -112,6 +121,7 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
 
 // Connect to store and export shopping page
 export default connect(
