@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addItem } from "./actions/shoppingActions";
 import axios from "axios";
+import {Spring} from 'react-spring/renderprops'
+
+
+var divstyle= {
+background: 'steelblue',
+};
+
 
 class ShoppingPage extends Component {
   //Adds the clicked item to the shopping cart.
@@ -49,7 +56,10 @@ class ShoppingPage extends Component {
     this.props.addItem(id);
   };
 
+
+
   render() {
+    
     // Renders items on the page in cards.
     // let itemList = this.props.items.map(item => {
     return (
@@ -58,7 +68,14 @@ class ShoppingPage extends Component {
         {this.state.inventory ? (
           this.state.inventory.map(item => {
             return (
-              <div className="card" key={item.id}>
+              <div>
+                <Spring
+                from={{ opacity:0, marginTop: 500 }}
+                to={{ opacity:1, marginTop: 0  }}
+                >
+                  {props => (
+                    <div style={props}>
+                      <div className="card" key={item.id}>
                 <div className="card-image">
                   <img src={item.image} alt={item.itemName} />
                   <span className="card-title">{this.state.itemName}</span>
@@ -79,12 +96,20 @@ class ShoppingPage extends Component {
                   </p>
                 </div>
               </div>
-            );
+                </div>
+                  )}
+                </Spring>
+                    </div>
+              
+            ); 
           })
+          
         ) : (
             <div>Hi</div>
           )}
       </div>
+      
+      
     );
 
     // });
@@ -112,6 +137,7 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
 
 // Connect to store and export shopping page
 export default connect(
