@@ -9,6 +9,7 @@ import Register from "./components/Register";
 import ShoppingPage from "./components/ShoppingPage";
 import ShoppingCart from "./components/ShoppingCart";
 import SideNav from "./components/SideNav";
+import Profile from "./components/SideNav";
 
 
 
@@ -23,7 +24,7 @@ function App() {
           <Route exact path="/cart" component={ShoppingCart} />
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/profile" component={SideNav} />
+          <Route exact path="/sidenav" component={Profile} />
         </Switch>
       </div>
     </Router>
