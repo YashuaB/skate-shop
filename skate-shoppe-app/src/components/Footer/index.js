@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./style.css";
 
 const Footer = () => {
@@ -8,7 +7,6 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="col l6 s12">
-            <h5 className="white-text" />
             <p className="grey-text text-lighten-8" />
             This application was created for UNCC coding bootcamp final project! Click on a collaborator's name to see more of our projects!
           </div>

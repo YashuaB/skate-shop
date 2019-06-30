@@ -1,8 +1,15 @@
-body {
-    background-color: #424242;
-}
 
 .brand-logo {
-    font-family: 'Fugaz One', cursive;
+  font-family: "Fugaz One", cursive;
+}
 
+span.badge {
+  position: relative;
+  right: 5px;
+  top: -40px;
+  color: #941e1e;
+  background-color: #f5f1f2;
+  margin: 0 -0.1em;
+  border-radius: 100%;
+  padding: 15px 15px;
 }
