@@ -1,7 +1,47 @@
 import React, { Component } from "react";
 import { SideNav, SideNavItem, Button } from "react-materialize";
 
-// class Profile extends Component  {
+class Profile extends Component  {
+
+state = {
+  username: "",
+  loggedIn: null
+}
+
+componentDidMount() {
+
+  axios.get('http://localhost:8080/login').then(response => {
+
+              console.log('Get user response: ')
+              console.log(response.data)
+
+              if (response.data.user) {
+                
+                console.log('Get User: There is a user saved in the server session: ' )
+        
+                this.setState({
+                  loggedIn: true,
+                  username: response.data.username
+                })
+              } else {
+                console.log( response.data.user)
+                console.log('Get user: no user');
+                this.setState({
+                  loggedIn: false,
+                  username: null
+                })
+              }
+            })
+
+}
+
+
+handleLogout(){
+  this.setState{
+    loggedIn: null
+  }
+}
+
 //   render() {
 //     return (
 //       <div>
@@ -11,7 +51,7 @@ import { SideNav, SideNavItem, Button } from "react-materialize";
 //             user={{
 //               background: "https://s3.envato.com/files/218429202/Preview_Image_.jpg",
 //               image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1hm6RmFq5rHHvsqhAgJphR0oraHldYRf8XVF1xbqT00HTfGSY",
-//               name: "Daenerys Targaryen"
+//               name: {this.username}"Daenerys Targaryen"
 //             }}
 //           />
 //           <SideNavItem waves href="#!icon" icon="cloud">
@@ -23,7 +63,7 @@ import { SideNav, SideNavItem, Button } from "react-materialize";
 //             Change Password
 //           </SideNavItem>
 //           <SideNavItem waves href="#!fifth" icon="person">
-//             Log Out
+//             Log Out  <button onClick={this.handleLogout}>Submit</button>
 //           </SideNavItem>
 //         </SideNav>
 //       </div>
@@ -124,5 +164,5 @@ import { SideNav, SideNavItem, Button } from "react-materialize";
 //     );
 //   }
 // }
-
-// export default Profile;
+}
+export default Profile;

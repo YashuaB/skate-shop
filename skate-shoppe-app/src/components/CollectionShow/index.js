@@ -21,7 +21,7 @@ class collectionShow extends Component {
   
   getPants = event => {
     axios
-      .get("/inventory/pants/:pants?")
+      .get("/inventory/pants")
       .then(res => {
         const data = res.data;
         this.setState({ inventory: data });

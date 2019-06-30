@@ -10,8 +10,7 @@ class ShoppingPage extends Component {
   };
 
   componentDidMount() {
-    console.log("test");
-
+  
     axios
       .get("/all-inventory")
       .then(res => {
@@ -24,27 +23,7 @@ class ShoppingPage extends Component {
         console.log(error);
       });
 
-    // fetch("/all-inventory")
-    // .then(results => {
-    //   console.log(results.body)
-    //   // return results.json()
-    // }).then(data => {
-    //   console.log(data)
-
-    // let inventory = data.results.map((item) =>{
-    //   return(
-    //     <div key={item.results}>
-    //      <img src={item.image}/>
-    //     </div>
-    //   )
-    // })
-
-    // this.setState({inventory:data}, () => {
-    //   console.log("state", this.state.inventory)
-
-    // })
-
-    // })
+    
   }
 
   handleClick = id => {
@@ -52,8 +31,7 @@ class ShoppingPage extends Component {
   };
 
   render() {
-    // Renders items on the page in cards.
-    // let itemList = this.props.items.map(item => {
+   
     return (
       // <h3 className="center">SHOP</h3>
       <div className="box">

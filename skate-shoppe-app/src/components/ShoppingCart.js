@@ -10,6 +10,8 @@ import Recipe from "./Recipe";
 
 class ShoppingCart extends Component {
   // Remove an item from shopping cart
+ 
+
   handleRemove = id => {
     this.props.removeItem(id);
   };
