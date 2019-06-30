@@ -3,44 +3,28 @@ import { SideNav, SideNavItem, Button } from "react-materialize";
 
 class Profile extends Component  {
 
-state = {
-  username: "",
-  loggedIn: null
+  constructor() {
+    super()
+    this.logout = this.logout.bind(this)
 }
 
-componentDidMount() {
+logout(event) {
+  
+    event.preventDefault()
+    console.log('logging out')
 
-  axios.get('http://localhost:8080/login').then(response => {
-
-              console.log('Get user response: ')
-              console.log(response.data)
-
-              if (response.data.user) {
-                
-                console.log('Get User: There is a user saved in the server session: ' )
-        
-                this.setState({
-                  loggedIn: true,
-                  username: response.data.username
-                })
-              } else {
-                console.log( response.data.user)
-                console.log('Get user: no user');
-                this.setState({
-                  loggedIn: false,
-                  username: null
-                })
-              }
-            })
-
-}
-
-
-handleLogout(){
-  this.setState{
-    loggedIn: null
+    axios.post('/user/logout').then(response => {
+      console.log(response.data)
+      if (response.status === 200) {
+        this.props.updateUser({
+          loggedIn: false,
+          username: null
+        })
+      }
+    }).catch(error => {
+        console.log('Logout error')
+    })
   }
-}
 
 //   render() {
 //     return (

@@ -13,7 +13,44 @@ import ShoppingCart from "./components/ShoppingCart";
 
 
 
-function App() {
+class App extends Component() {
+
+  constructor() {
+    super()
+    this.state = {
+      loggedIn: false,
+      username: null
+    }
+    this.getUser = this.getUser.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
+    this.updateUser = this.updateUser.bind(this)
+  }
+
+  componentDidMount() {
+    this.getUser()
+  }
+  getUser() {
+    axios.get('/user').then(response => {
+      console.log('Get user response: ')
+      console.log(response.data)
+      if (response.data.user) {
+        console.log('Get User: There is a user saved in the server session: ')
+
+        this.setState({
+          loggedIn: true,
+          username: response.data.user.username
+        })
+      } else {
+        console.log('Get user: no user');
+        this.setState({
+          loggedIn: false,
+          username: null
+        })
+      }
+    })
+  }
+
+  render(){
   return (
     <Router>
       <div>
@@ -30,5 +67,5 @@ function App() {
     </Router>
   );
 }
-
+}
 export default App;

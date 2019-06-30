@@ -1,5 +1,4 @@
-// const express = require('express')
-// const router = express.Router()
+
 const User = require('../models/login.js')
 const passport = require('../passportConfig/passport.js')
 
@@ -40,11 +39,14 @@ app.post(
     function (req, res, next) {
         console.log('routes/user.js, login, req.body: ');
         console.log(req.body)
+
         next()
     },
     passport.authenticate('local'),
     (req, res) => {
+
         console.log('logged in', req.user);
+
         var userInfo = {
             username: req.body.username
         };
@@ -63,7 +65,7 @@ app.get('/register', (req, res, next) => {
 })
 
 
-app.get("/login", (req,res) => {
+app.get("/user", (req,res) => {
   if (req.user) {
     res.json({ user: req.user })
 } else {
