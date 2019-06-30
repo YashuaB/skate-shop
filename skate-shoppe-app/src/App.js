@@ -7,7 +7,6 @@ import LogIn from "./components/LogIn";
 import Register from "./components/Register";
 import ShoppingPage from "./components/ShoppingPage";
 import ShoppingCart from "./components/ShoppingCart";
-import SideNav from "./components/SideNav";
 import Profile from "./components/SideNav";
 import CheckoutPage from "./components/CheckoutPage";
 

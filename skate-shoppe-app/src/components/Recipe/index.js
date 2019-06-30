@@ -26,15 +26,15 @@ class Recipe extends Component {
                 ref="shipping"
                 onChange={this.handleChecked}
               />
-              <span>Shipping(+6$)</span>
+              <span>Shipping(+$10.00)</span>
             </label>
           </li>
           <li className="collection-item">
             <b>Total: {this.props.total} $</b>
           </li>
         </div>
-        <div className="checkout">
-          <button className="waves-effect waves-light btn">Proceed To Checkout</button>
+        <div className="checkout-button">
+          <Link to="/checkout" className="waves-effect waves-light btn"> Proceed To Checkout </Link>
         </div>
       </div>
     );
