@@ -46,7 +46,7 @@ app.post(
     (req, res) => {
         console.log('logged in', req.user);
         var userInfo = {
-            username: req.body.user.username
+            username: req.body.username
         };
         res.send(userInfo);
     }
