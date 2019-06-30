@@ -9,10 +9,21 @@ class ShoppingPage extends Component {
     inventory: []
   };
 
+
   componentDidMount() {
-  
+    console.log("test");
+
+    let url = "";
+
+    if (this.props.match.params.item) {
+      url = `http://localhost:8080/inventory/${this.props.match.params.item}`;
+    }
+
+    else url = "http://localhost:8080/all-inventory";
+    console.log(this.props);
+
     axios
-      .get("/all-inventory")
+      .get(url)
       .then(res => {
       
         const data = res.data;

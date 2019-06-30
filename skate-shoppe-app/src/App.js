@@ -3,13 +3,13 @@ import "./App.css";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home/Home";
-import Footer from "./components/Footer";
 import LogIn from "./components/LogIn";
 // import Register from "./components/Register";
 import SignUp from "./components/SignUp";
 import ShoppingPage from "./components/ShoppingPage";
 import ShoppingCart from "./components/ShoppingCart";
-// import Profile from "./components/SideNav";
+import Profile from "./components/SideNav";
+import CheckoutPage from "./components/CheckoutPage";
 
 
 
@@ -57,11 +57,12 @@ class App extends Component() {
         <Nav />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/shop" component={ShoppingPage} />
+          <Route exact path="/shop/:item?" component={ShoppingPage} />
           <Route exact path="/cart" component={ShoppingCart} />
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/register" component={SignUp} />
-          {/*<Route exact path="/sidenav" component={Profile} />*/}
+          <Route exact path="/sidenav" component={Profile} />
+          <Route exact path="/checkout" component={CheckoutPage} />
         </Switch>
       </div>
     </Router>
