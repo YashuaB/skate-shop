@@ -125,116 +125,41 @@ class LoginForm extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-            <div>
-                <h4>Login</h4>
-                <form className="form-horizontal">
-                    <div className="form-group">
-                        <div className="col-1 col-ml-auto">
-                            <label className="form-label" htmlFor="username">Username</label>
-                        </div>
-                        <div className="col-3 col-mr-auto">
-                            <input className="form-input"
-                                type="text"
-                                id="username"
-                                name="username"
-                                placeholder="Username"
-                                value={this.state.username}
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-1 col-ml-auto">
-                            <label className="form-label" htmlFor="password">Password: </label>
-                        </div>
-                        <div className="col-3 col-mr-auto">
-                            <input className="form-input"
-                                placeholder="password"
-                                type="password"
-                                name="password"
-                                value={this.state.password}
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="form-group ">
-                        <div className="col-7"></div>
-                        <button
-                            className="btn btn-primary col-1 col-mr-auto"
-                        />
-                          </div>
+                
+       <div className="container z-depth-3" style={{ marginTop: "50px", width: "700px", backgroundColor: "white", padding:"35px"}}>
+          <h2 style={{marginBottom: "40px", marginTop: "0px"}}>Login</h2>
+                       <form onSubmit={ this.handleSubmit }>
+                           <div className="form-group">
+                               <input
+                               type="email"
+                               placeholder="Email"
+                               className="form-control"
+                               name="email"
+                               onChange={ this.handleInputChange }
+                               value={ this.state.email }
+                               />
+                           </div>
+                           <div className="form-group">
+                               <input
+                               type="password"
+                               placeholder="Password"
+                               className="form-control"
+                               name="password"
+                               onChange={ this.handleInputChange }
+                               value={ this.state.password }
+                               />
+                           </div>
+                           <div className="form-group">
+                               <button type="submit" className="btn btn-primary">
+                                   Login User
+                               </button>
+                           </div>
+                       </form>
+                   </div>
+                   )
+               }
+              }
+            }
 
-                      </form>
-          </div>
-  
-      
 
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     const user = {
-    //         email: this.state.email,
-    //         password: this.state.password,
-    //     }
-    //     console.log(user);
-
-    //     axios.get('http://localhost:8080/login', function(req, res){
-    //         if(req.isAuthenticated()) {
-    //           res.redirect('/');
-    //         } else {
-    //           res.send("unauthorized") }
-              
-    //         }
-    //         );
-    // }
-
-        //          onClick={this.handleSubmit}
-        //          type="submit">Login</button>
-        //             </div>
-        //         </form>
-        //     </div>
-        // )
-        // <div
-        //   className="container z-depth-3"
-        //   style={{
-        //     marginTop: "50px",
-        //     width: "700px",
-        //     backgroundColor: "white",
-        //     padding: "35px"
-        //   }}
-        // > 
-        //   <h2 style={{ marginBottom: "40px", marginTop: "0px" }}>Login</h2>
-        //   <form onSubmit={this.handleSubmit}>
-        //     <div className="form-group">
-        //       <input
-        //         type="email"
-        //         placeholder="Email"
-        //         className="form-control"
-        //         name="email"
-        //         onChange={this.handleInputChange}
-        //         value={this.state.email}
-        //       />
-        //     </div>
-        //     <div className="form-group">
-        //       <input
-        //         type="password"
-        //         placeholder="Password"
-        //         className="form-control"
-        //         name="password"
-        //         onChange={this.handleInputChange}
-        //         value={this.state.password}
-        //       />
-        //     </div>
-        //     <div className="form-group">
-        //       <button type="submit" className="btn btn-primary">
-        //         Login
-        //       </button>
-        //     </div>
-        //   </form>
-        // </div>
-        // </div>
-      );
-    }
-  }
-}
-
-export default LoginForm;
+            export default LoginForm;
