@@ -14,19 +14,19 @@ import {
 } from "../actions/actionTypes";
 
 
-constructor() {
-  super()
-  this.state = {
-     id: id
-  }
+// constructor() {
+//   super()
+//   this.state = {
+//      id: id
+//   }
   
-  this.handleSubmit = this.handleSubmit.bind(this)
-  this.handleChange = this.handleChange.bind(this)
+//   this.handleSubmit = this.handleSubmit.bind(this)
+//   this.handleChange = this.handleChange.bind(this)
 
-}
-  componentDidMount(){
+// }
+//   componentDidMount(){
 
-  }
+//   }
 
 
 const initState = {

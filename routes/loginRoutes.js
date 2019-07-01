@@ -73,7 +73,7 @@ app.get("/user", (req,res) => {
 }
 })
 
-app.post('user/logout', (req, res) => {
+app.post('/user/logout', (req, res) => {
     if (req.user) {
         req.logout()
         res.send({ msg: 'logging out' })

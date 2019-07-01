@@ -38,12 +38,16 @@ class LoginForm extends Component {
             .then(response => {
                 console.log('login response: ')
                 console.log(response)
-                if (response.status === 200) {
+                if(this.state.loggedIn === true ){
+                    console.log("user already logged in")
+                }
+               else if (response.status === 200) {
                     
-                  this.props.updateUser({
+                  this.setState({
                         loggedIn: true,
                         username: response.data.username
                     })
+                    console.log(this.state.loggedIn)
                     console.log(response.data.username)
                     // update the state to redirect to home
                     this.setState({
@@ -219,7 +223,7 @@ class LoginForm extends Component {
                                placeholder="Password"
                                className="form-control"
                                name="password"
-                               onChange={ this.handleInputChange }
+                               onChange={ this.handleChange }
                                value={ this.state.password }
                                />
                            </div>

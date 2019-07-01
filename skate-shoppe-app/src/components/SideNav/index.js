@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { SideNav, SideNavItem, Button } from "react-materialize";
+import axios from "axios";
 
 class Profile extends Component {
 

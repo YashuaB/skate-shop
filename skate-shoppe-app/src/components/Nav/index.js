@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
-// import Profile from "../SideNav"
+import Profile from "../SideNav"
 
  const Navbar = ({ match }) => {
     return(
@@ -12,7 +12,7 @@ import './style.css';
                         <li><Link to="/shop"> Shop All</Link></li>
                         <li><Link to="/register"> Sign Up </Link></li>
                         <li><Link to="/login"> Log In </Link></li>
-                        {/*<li><Profile /></li>*/}
+                        <li><Profile /></li>
                         <li><Link to="/cart"><i className="material-icons">shopping_cart</i></Link></li>
                     
                     </ul>

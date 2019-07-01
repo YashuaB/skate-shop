@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -10,17 +10,20 @@ import ShoppingPage from "./components/ShoppingPage";
 import ShoppingCart from "./components/ShoppingCart";
 import Profile from "./components/SideNav";
 import CheckoutPage from "./components/CheckoutPage";
+import axios from "axios";
 
 
 
-class App extends Component() {
+class App extends Component  {
 
   constructor() {
     super()
+
     this.state = {
       loggedIn: false,
       username: null
     }
+
     this.getUser = this.getUser.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
     this.updateUser = this.updateUser.bind(this)
@@ -29,6 +32,11 @@ class App extends Component() {
   componentDidMount() {
     this.getUser()
   }
+
+  updateUser (userObject) {
+    this.setState(userObject)
+  }
+
   getUser() {
     axios.get('/user').then(response => {
       console.log('Get user response: ')
