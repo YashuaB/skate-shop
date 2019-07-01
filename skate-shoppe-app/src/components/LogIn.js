@@ -1,124 +1,65 @@
-// import React, { Component } from "react";
-
-// class Login extends Component {
-
-//     constructor() {
-//         super();
-//         this.state = {
-//             email: "",
-//             password: "",
-//             errors: {}
-//         }
-//         this.handleInputChange = this.handleInputChange.bind(this);
-//         this.handleSubmit = this.handleSubmit.bind(this);
-//     }
-
-//     handleInputChange(e) {
-//         this.setState({
-//             [e.target.name]: e.target.value
-//         })
-//     }
-
-//     handleSubmit(e) {
-//         e.preventDefault();
-//         const user = {
-//             email: this.state.email,
-//             password: this.state.password,
-//         }
-//         console.log(user);
-//     }
-
-//     render() {
-//         return(
-//         <div className="container z-depth-3" style={{ marginTop: "50px", width: "700px", backgroundColor: "white", padding:"35px"}}>
-//             <h2 style={{marginBottom: "40px", marginTop: "0px"}}>Login</h2>
-//             <form onSubmit={ this.handleSubmit }>
-//                 <div className="form-group">
-//                     <input
-//                     type="email"
-//                     placeholder="Email"
-//                     className="form-control"
-//                     name="email"
-//                     onChange={ this.handleInputChange }
-//                     value={ this.state.email }
-//                     />
-//                 </div>
-//                 <div className="form-group">
-//                     <input
-//                     type="password"
-//                     placeholder="Password"
-//                     className="form-control"
-//                     name="password"
-//                     onChange={ this.handleInputChange }
-//                     value={ this.state.password }
-//                     />
-//                 </div>
-//                 <div className="form-group">
-//                     <button type="submit" className="btn btn-primary">
-//                         Login User
-//                     </button>
-//                 </div>
-//             </form>
-//         </div>
-//         )
-//     }
-// }
-
-// export default Login;
-
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import axios from "axios";
-// import passport from "passport"
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import axios from 'axios'
 
 class LoginForm extends Component {
-  constructor() {
-    super();
-    this.state = {
-      username: "",
-      password: "",
-      redirectTo: null
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
+    constructor() {
+        super()
+        this.state = {
 
-
-  handleChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    console.log("handleSubmit");
-
-    axios
-      .post("/user/login", {
-        username: this.state.username,
-        password: this.state.password
-      })
-      .then(response => {
-        console.log("login response: ");
-        console.log(response);
-        if (response.status === 200) {
-          // update App.js state
-          this.props.updateUser({
-            loggedIn: true,
-            username: response.data.username
-          });
-          // update the state to redirect to home
-          this.setState({
-            redirectTo: "/"
-          });
+            username: '',
+            password: '',
+            redirectTo: null,
+            loggedIn: false,
         }
-      })
-      .catch(error => {
-        console.log("login error: ");
-        console.log(error);
-      });
-  }
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+  
+    }
+
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    handleSubmit(event) {
+        event.preventDefault()
+        console.log('handleSubmit')
+
+       
+         
+
+        axios
+            .post('http://localhost:8080/login', {
+                username: this.state.username,
+                password: this.state.password
+            })
+            .then(response => {
+                console.log('login response: ')
+                console.log(response)
+                if(this.state.loggedIn === true ){
+                    console.log("user already logged in")
+                }
+               else if (response.status === 200) {
+                    
+                  this.setState({
+                        loggedIn: true,
+                        username: response.data.username
+                    })
+                    console.log(this.state.loggedIn)
+                    console.log(response.data.username)
+                    // update the state to redirect to home
+                    this.setState({
+                        redirectTo: '/'
+                    })
+                }
+            }).catch(error => {
+                console.log('login error: ')
+                console.log(error);
+                
+            })
+    }
 
   render() {
     if (this.state.redirectTo) {
@@ -129,23 +70,24 @@ class LoginForm extends Component {
        <div className="container z-depth-3" style={{ marginTop: "50px", width: "700px", backgroundColor: "white", padding:"35px"}}>
           <h2 style={{marginBottom: "40px", marginTop: "0px"}}>Login</h2>
                        <form onSubmit={ this.handleSubmit }>
-                           <div className="form-group">
-                               <input
-                               type="email"
-                               placeholder="Email"
-                               className="form-control"
-                               name="email"
-                               onChange={ this.handleInputChange }
-                               value={ this.state.email }
-                               />
-                           </div>
+                       <div className="form-group">
+                      <input
+                          type="text"
+                          id="username"
+                          name="username"
+                          placeholder="Username"
+                          value={this.state.username}
+                          onChange={this.handleChange}
+                            />
+                        </div>
+                           
                            <div className="form-group">
                                <input
                                type="password"
                                placeholder="Password"
                                className="form-control"
                                name="password"
-                               onChange={ this.handleInputChange }
+                               onChange={ this.handleChange }
                                value={ this.state.password }
                                />
                            </div>

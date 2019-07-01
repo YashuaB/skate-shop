@@ -1,66 +1,86 @@
-var db = require("../models")
-var passport = require("passport")
+
+const User = require('../models/login.js')
+const passport = require('../passportConfig/passport.js')
+
+
 
 module.exports = function(app){
-
-  app.post('/login', passport.authenticate('local', { successRedirect: '/',
-        failureRedirect: '/register'}))
-
-  app.post("/register", function(req,res){
-    console.log(req.body)
-    db.User.create({
-      username: req.body.user.username,
-       email: req.body.user.email,
-       password: req.body.user.password
-    })
-      .then(function(dbUser) {
-        res.json(dbUser);
-      })
-      .catch(function(err, res){
-        if (err){
-          console.log(err,)
-        }else
-        {res.send("done")}
-      })
-      
-  })
-
-
-  function loggedIn(req, res, next) {
-    if (req.user) { // if request contains the user
-        next(); // call next
-    } else {
-        res.status(403).send("Unauthorized")  // throwing unauthorized
-    }
-}
-  app.get("/login", function(req,res){
-   
-    res.send("done")
-  })
-
-  app.get("/", function(req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
-  });
-//
-  app.get("http://localhost:3001/shop", loggedIn, function(req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.send("done")
-  });
-//
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be 
-  //redirected to the signup page
-  app.get("/members",loggedIn, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
-  });
-  // app.get("/login/user"){
+  
+  app.post('/register', (req, res) => {
+    console.log('user signup');
+    var username = req.body.user.username
+    var email = req.body.user.email
+    var password = req.body.user.password
     
-  // }
+    // ADD VALIDATION
+            User.findOne({ username: username }, (err, user) => {
+                if (err) {
+                    console.log('User.js post error: ', err)
+                } else if (user) {
+                    res.json({error: `Sorry, already a user with the username: ${username}`
+                    })
+                }
+                else {
+                    const newUser = new User({
+                        username: username,
+                        email: email,
+                        password: password
+                    })
+            newUser.save((err, savedUser) => {
+                if (err) return res.json(err)
+                res.json(savedUser)
+            })
+        }
+    })
+})
+
+app.post(
+    '/login',
+    function (req, res, next) {
+        console.log('routes/user.js, login, req.body: ');
+        console.log(req.body)
+
+        next()
+    },
+    passport.authenticate('local'),
+    (req, res) => {
+
+        console.log('logged in', req.user);
+
+        var userInfo = {
+            username: req.body.username
+        };
+        res.send(userInfo);
+    }
+)
+
+app.get('/register', (req, res, next) => {
+    console.log('===== user!!======')
+    console.log(req.user)
+    if (req.user) {
+        res.json({ user: req.user })
+    } else {
+        res.json({ user: null })
+    }
+})
+
+
+app.get("/user", (req,res) => {
+  if (req.user) {
+    res.json({ user: req.user })
+} else {
+    res.json({ user: null })
 }
+})
+
+app.post('/user/logout', (req, res) => {
+    if (req.user) {
+        req.logout()
+        res.send({ msg: 'logging out' })
+    } else {
+        res.send({ msg: 'no user to log out' })
+    }
+})
+}
+
+

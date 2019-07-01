@@ -13,6 +13,22 @@ import {
   ADD_SHIPPING
 } from "../actions/actionTypes";
 
+
+// constructor() {
+//   super()
+//   this.state = {
+//      id: id
+//   }
+  
+//   this.handleSubmit = this.handleSubmit.bind(this)
+//   this.handleChange = this.handleChange.bind(this)
+
+// }
+//   componentDidMount(){
+
+//   }
+
+
 const initState = {
   items: [
     {
