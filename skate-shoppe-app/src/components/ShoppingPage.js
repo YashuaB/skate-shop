@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addItem } from "./actions/shoppingActions";
-import axios from "../../../skate-shoppe-app/node_modules/axios";
+import axios from "axios";
 
 class ShoppingPage extends Component {
   //Adds the clicked item to the shopping cart.

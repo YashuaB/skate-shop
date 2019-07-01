@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { SideNav, SideNavItem, Button } from "react-materialize";
-import axios from "../../../../skate-shoppe-app/node_modules/axiose_modules/axios";
+import axios from "axios";
 
 class Profile extends Component {
 

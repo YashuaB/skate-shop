@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import axios from '../../../skate-shoppe-app/node_modules/axioseNav/node_modules/axios'
+import axios from 'axios'
 
 class LoginForm extends Component {
     
