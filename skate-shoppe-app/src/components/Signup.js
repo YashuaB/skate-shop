@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 class SignUp extends Component {
@@ -61,6 +62,9 @@ class SignUp extends Component {
 
 
 render() {
+	if (this.state.redirectTo) {
+		return <Redirect to={{ pathname: this.state.redirectTo }} />;
+	} else {
 	return (
 		<div className="container z-depth-3" style={{ marginTop: "50px", width: "700px", backgroundColor: "white", padding:"35px", oppacity: "0.5"}}>
              <h2 style={{marginBottom: "20px", marginTop: "0px"}}>Registration</h2>
@@ -176,6 +180,7 @@ render() {
 		// </div>
 
 	)}
+}
 }
 
 export default SignUp
