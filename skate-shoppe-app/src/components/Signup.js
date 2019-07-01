@@ -38,7 +38,7 @@ class SignUp extends Component {
 							console.log(user)
 		
 
-		axios.post('http://localhost:8080/register', {user
+		axios.post('/register', {user
 		
 		})
 			.then(response => {
