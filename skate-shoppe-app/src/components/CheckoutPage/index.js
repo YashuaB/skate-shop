@@ -6,7 +6,6 @@ const CheckoutPage = () => {
     <div className="app-container">
       <div className="row">
         <div className="col">
-         
         </div>
         <div className="col no-gutters">
           <Checkout />
@@ -16,17 +15,7 @@ const CheckoutPage = () => {
   );
 };
 
-const Item = props => (
-  <div className="item-container">
-    <div className="item-image">
-      <img src={props.img} />
-      <div className="item-details">
-        <h3 className="item-name"> {props.name} </h3>
-        <h2 className="item-price"> {props.price} </h2>
-      </div>
-    </div>
-  </div>
-);
+
 const Checkout = props => (
   <div className="checkout">
     <div className="checkout-container">
@@ -56,7 +45,6 @@ const Input = props => (
     <label>{props.label}</label>
     <div className="input-field">
       <input type={props.type} name={props.name} />
-      <img src={props.imgSrc} />
     </div>
   </div>
 );

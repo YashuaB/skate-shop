@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import "./style.css";
-import axios from 'axios';
 
+// Component that 
 class collectionShow extends Component {
-  state = {
-    inventory: []
-  }
-
   render() {
     return (
     <div className="container-fluid">
@@ -26,10 +22,10 @@ class collectionShow extends Component {
         </div>
       </div>
       <div className="row">
+      <div className="col s6 collectionImage2">
+        </div>
         <div className="col s6 buttonCol">
         <Link to="/shop/decks" className="waves-effect grey lighten-4 black-text btn-large button">Shop Decks</Link>
-        </div>
-        <div className="col s6 collectionImage2">
         </div>
       </div>
       </div>

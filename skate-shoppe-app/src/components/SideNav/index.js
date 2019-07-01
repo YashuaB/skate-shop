@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { SideNav, SideNavItem, Button } from "react-materialize";
+import { SideNav, SideNavItem } from "react-materialize";
 
 class Profile extends Component  {
   render() {
