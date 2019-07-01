@@ -3,8 +3,9 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 class LoginForm extends Component {
-    constructor() {
-        super()
+    
+    constructor(props) {
+        super(props)
         this.state = {
 
             username: '',
@@ -31,7 +32,7 @@ class LoginForm extends Component {
          
 
         axios
-            .post('http://localhost:8080/login', {
+            .post('/login', {
                 username: this.state.username,
                 password: this.state.password
             })
@@ -43,7 +44,7 @@ class LoginForm extends Component {
                 }
                else if (response.status === 200) {
                     
-                  this.setState({
+                  this.props.updateUser({
                         loggedIn: true,
                         username: response.data.username
                     })

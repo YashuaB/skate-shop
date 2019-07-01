@@ -4,8 +4,8 @@ import axios from "axios";
 
 class Profile extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.logout = this.logout.bind(this)
   }
 

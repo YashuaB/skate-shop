@@ -5,11 +5,20 @@ const dbConnection = require('./models/index.js')
 const MongoStore = require('connect-mongo')(session)
 const cors = require("cors")
 const app = express()
-
+const path = require("path")
 
 const PORT = 8080
 
 
+
+// ... other app.use middleware 
+app.use(express.static(path.join(__dirname, "client/build")))
+
+// ...
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
  
 
 // MIDDLEWARE
@@ -58,6 +67,7 @@ passport.use(LocalStrategy)
 // Passport
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
+
 
 
 // Routes

@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 class SignUp extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			username:'',
 			email: '',

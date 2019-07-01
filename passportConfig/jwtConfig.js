@@ -14,7 +14,7 @@ const strategy = new LocalStrategy(
 				return done(null, false, { message: 'Incorrect username' })
 			}
 			if (!user.checkPassword(password)) {
-				return done(null, false, { message: 'Incorrect password' })
+				return done(null, false,{  message: 'Incorrect password' })
 			}
 			return done(null, user)
 		})
@@ -35,6 +35,3 @@ module.exports = strategy
 
 
 
-// module.exports = {
-//   secret: 'crazy-leg951634h1g5s6ds',
-// };

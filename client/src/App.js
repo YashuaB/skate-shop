@@ -16,8 +16,8 @@ import axios from "axios";
 
 class App extends Component  {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       loggedIn: false,
@@ -33,7 +33,7 @@ class App extends Component  {
     this.getUser()
   }
 
-  updateUser (userObject) {
+  updateUser(userObject) {
     this.setState(userObject)
   }
 

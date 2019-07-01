@@ -5,7 +5,7 @@ module.exports = function(app) {
 
 
 
-  app.get("/all-inventory", function(req, res){
+  app.get("/all-inventory", (req, res) => {
 
     Item.find({}, (err, item) => {
       if (err) {
@@ -30,7 +30,7 @@ app.get("/all-inventory/:singleItem?", function(req, res){
 })
 
 
-app.get("/all-inventory/shirt?", function(req, res){
+app.get("/all-inventory/shirt?", (req, res) =>{
 
   Item.find({category:"shirt"}, (err, item) => {
     if (err) {
@@ -41,7 +41,7 @@ app.get("/all-inventory/shirt?", function(req, res){
   })
 })
 
-app.get("/all-inventory/pants", function(req, res){
+app.get("/all-inventory/pants", (req, res) => {
 
   Item.find({category:"pants"}, (err, item) => {
     if (err) {
@@ -52,7 +52,7 @@ app.get("/all-inventory/pants", function(req, res){
   })
 })
 
-app.get("/all-inventory/deck", function(req, res){
+app.get("/all-inventory/deck", (req, res) => {
 
   Item.findOne({category:"deck"}, (err, item) => {
     if (err) {
