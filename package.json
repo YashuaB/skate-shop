@@ -10,7 +10,8 @@
     "skate-shoppe-app": "cd skate-shoppe-app && npm run start",
     "seed": "node scripts/seedDB.js",
     "install": "cd skate-shoppe-app && npm install",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "build": "cd skate-shoppe-app && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
