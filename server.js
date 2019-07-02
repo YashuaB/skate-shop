@@ -59,7 +59,9 @@ passport.use(LocalStrategy)
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
-
+if (process.env.NODE_ENV === "production"){
+	app.use(express.static("client/build"))
+}
 // Routes
 require('./routes/loginRoutes')(app)
 require('./routes/itemRoutes')(app)
