@@ -1,9 +1,23 @@
+import axios from "axios"
 import {
   ADD_ITEM,
   REMOVE_ITEM,
   SUB_QUANTITY,
   ADD_QUANTITY
 } from "./actionTypes";
+
+
+// export function GetItems() {
+//   return (dispatch) =>{axios.get("/all-inventory"),then((response)=>{
+//     dispatch(itemFetched(response.data))
+//   })  
+   
+  
+  
+// }
+// }
+
+// export function 
 
 //Action creators
 //Action to add item in shopping cart

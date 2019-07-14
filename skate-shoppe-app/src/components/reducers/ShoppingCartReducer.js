@@ -31,49 +31,49 @@ import {
 
 const initState = {
   items: [
-    {
-      id: 1,
-      title: "VANS",
-      description: "Houser Short Sleeve Buttondown Shirt",
-      dollarSign: "$",
-      price: 44.5,
-      img: Item1
-    },
-    {
-      id: 2,
-      title: "VANS",
-      description: "Checker Camp Short Sleeve Buttondown Shirt",
-      price: 49.5,
-      img: Item2
-    },
-    {
-      id: 3,
-      title: "VANS",
-      description: "Mo Betta Camp Buttondown Shirt",
-      price: 54.5,
-      img: Item3
-    },
-    {
-      id: 4,
-      title: "VANS",
-      description: "Arachnofloria Buttondown Shirt",
-      price: 44.5,
-      img: Item4
-    },
-    { 
-        id: 5, 
-        title: "Element", 
-        description: "Blazin' Tee", 
-        price: 22.0, 
-        img: Item5 
-    },
-    {
-      id: 6,
-      title: "Element",
-      description: "Liquid Icon Tee",
-      price: 22.0,
-      img: Item6
-    }
+    // {
+    //   id: 1,
+    //   title: "VANS",
+    //   description: "Houser Short Sleeve Buttondown Shirt",
+    //   dollarSign: "$",
+    //   price: 44.5,
+    //   img: Item1
+    // },
+    // {
+    //   id: 2,
+    //   title: "VANS",
+    //   description: "Checker Camp Short Sleeve Buttondown Shirt",
+    //   price: 49.5,
+    //   img: Item2
+    // },
+    // {
+    //   id: 3,
+    //   title: "VANS",
+    //   description: "Mo Betta Camp Buttondown Shirt",
+    //   price: 54.5,
+    //   img: Item3
+    // },
+    // {
+    //   id: 4,
+    //   title: "VANS",
+    //   description: "Arachnofloria Buttondown Shirt",
+    //   price: 44.5,
+    //   img: Item4
+    // },
+    // { 
+    //     id: 5, 
+    //     title: "Element", 
+    //     description: "Blazin' Tee", 
+    //     price: 22.0, 
+    //     img: Item5 
+    // },
+    // {
+    //   id: 6,
+    //   title: "Element",
+    //   description: "Liquid Icon Tee",
+    //   price: 22.0,
+    //   img: Item6
+    // }
   ],
   addedItems: [],
   total: 0

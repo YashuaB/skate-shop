@@ -1,6 +1,6 @@
 
 const Item = require("../models/items.js")
-
+const passport = require('../passportConfig/passport.js')
 module.exports = function(app) {
 
 
@@ -65,37 +65,39 @@ app.get("/all-inventory/deck", function(req, res){
  ////////////////////////////////////////////////////////////// 
 /// Sequelize for button need to be mongoose
  //////////////////////////////////////////////////////////////
-  app.get("/inventory/:item", function (req, res) {
-    const item = req.params.item;
-      db.Inventory.findAll({
-        where: {
-          category: item
-        }
-      }).then(function (dbInventory) {
-        res.json(dbInventory)
-      })
-  })
 
-  app.get("/inventory/shirts", function (req, res) {
-    db.Inventory.findAll({
-      where: {
-        category: "shirt"
-      }
-    }).then(function (dbInventory) {
-      res.json(dbInventory)
-    })
-})
 
-app.get("/inventory/decks", function (req, res) {
-  debugger;
-  db.Inventory.findAll({
-    where: {
-      category: "decks"
-    }
-  }).then(function (dbInventory) {
-    res.json(dbInventory)
-  })
-})
+//   app.get("/inventory/:item", function (req, res) {
+//     const item = req.params.item;
+//       db.Inventory.findAll({
+//         where: {
+//           category: item
+//         }
+//       }).then(function (dbInventory) {
+//         res.json(dbInventory)
+//       })
+//   })
+
+//   app.get("/inventory/shirts", function (req, res) {
+//     db.Inventory.findAll({
+//       where: {
+//         category: "shirt"
+//       }
+//     }).then(function (dbInventory) {
+//       res.json(dbInventory)
+//     })
+// })
+
+// app.get("/inventory/decks", function (req, res) {
+//   debugger;
+//   db.Inventory.findAll({
+//     where: {
+//       category: "decks"
+//     }
+//   }).then(function (dbInventory) {
+//     res.json(dbInventory)
+//   })
+// })
 
   // app.get("/inventory/price", function (req, res) {
   //   if (req.params.price) {

@@ -73,7 +73,7 @@ class ShoppingPage extends Component {
             );
           })
         ) : (
-            <div>Hi</div>
+            <div>No data to display please check database</div>
           )}
       </div>
     );

@@ -4,10 +4,11 @@ const session = require('express-session')
 const dbConnection = require('./models/index.js') 
 const MongoStore = require('connect-mongo')(session)
 const cors = require("cors")
+const passport = require("./passportConfig/passport")
 const app = express()
 
 
-const PORT = 8080
+const PORT = process.env.PORT || 8080
 
 
  
@@ -26,35 +27,35 @@ app.use(
 	})
 )
 
-const passport = require('passport')
-const LocalStrategy = require('./passportConfig/jwtConfig.js')
-const User = require('./models/login.js')
+// const passport = require('passport')
+// const LocalStrategy = require('./passportConfig/jwtConfig.js')
+// const User = require('./models/login.js')
 
-// called on login, saves the id to session req.session.passport.user = {id:'..'}
-passport.serializeUser((user, done) => {
-	console.log('*** serializeUser called, user: ')
-	console.log(user) // the whole raw user object!
-	console.log('---------')
-	done(null, { _id: user._id })
-})
+// // called on login, saves the id to session req.session.passport.user = {id:'..'}
+// passport.serializeUser((user, done) => {
+// 	console.log('*** serializeUser called, user: ')
+// 	console.log(user) // the whole raw user object!
+// 	console.log('---------')
+// 	done(null, { _id: user._id })
+// })
 
-// user object attaches to the request as req.user
-passport.deserializeUser((id, done) => {
-	console.log('DeserializeUser called')
-	User.findOne(
-		{ _id: id },
-		'username',
-		(err, user) => {
-			console.log('*** Deserialize user, user:')
-			console.log(user)
-			console.log('--------------')
-			done(null, user)
-		}
-	)
-})
+// // user object attaches to the request as req.user
+// passport.deserializeUser((id, done) => {
+// 	console.log('DeserializeUser called')
+// 	User.findOne(
+// 		{ _id: id },
+// 		'username',
+// 		(err, user) => {
+// 			console.log('*** Deserialize user, user:')
+// 			console.log(user)
+// 			console.log('--------------')
+// 			done(null, user)
+// 		}
+// 	)
+// })
 
-//  Use Strategies 
-passport.use(LocalStrategy)
+// //  Use Strategies 
+// passport.use(LocalStrategy)
 // Passport
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
@@ -80,8 +81,7 @@ app.listen(PORT, () => {
 
 
 
-// http://localhost:5000     │
-// │   - On Your Network:  http://192.168.1.2:5000  
+
 
 
 
